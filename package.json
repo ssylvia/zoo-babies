@@ -1,0 +1,25 @@
+{
+  "name": "zoo-babies",
+  "version": "0.0.0",
+  "description": "An Esri story map that showcases baby animals that were born in the Smithsonian's National Zoo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssylvia/zoo-babies.git"
+  },
+  "author": "Esri",
+  "license": "APACHE",
+  "bugs": {
+    "url": "https://github.com/ssylvia/zoo-babies/issues"
+  },
+  "homepage": "https://github.com/ssylvia/zoo-babies",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "matchdep": "^0.3.0",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "assemble": "^0.4.37",
+    "pretty": "^0.1.2",
+    "grunt-contrib-stylus": "^0.13.2",
+    "nib": "^1.0.2"
+  }
+}

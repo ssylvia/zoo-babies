@@ -1,0 +1,19 @@
+{
+  "name": "zoo-babies",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ssylvia/zoo-babies",
+  "authors": [
+    "Esri"
+  ],
+  "description": "An Esri story map that showcases baby animals that were born in the Smithsonian's National Zoo",
+  "license": "APACHE",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower_components",
+    "test",
+    "tests"
+  ]
+}

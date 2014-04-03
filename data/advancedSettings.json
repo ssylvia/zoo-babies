@@ -1,0 +1,10 @@
+{
+  "advancedSettings": {
+    "appName": "Zoo Babies",
+    "appIdentifier": "zoo-babies",
+    "apiVersion": 3.9,
+    "useDevAPI": false,
+    "includeDijitCSS": false,
+    "dijitTheme": "tundra"
+  }
+}

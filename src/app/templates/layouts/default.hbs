@@ -1,0 +1,73 @@
+{{#unless production}}
+<!--
+
+DO NOT EDIT THIS PAGE - ALL ELEMENTS SHOULD BE EDITED FROM THEIR RESPECTIVE TEMPLATE PAGES
+
+THIS PAGE IS BUILD BY ASSEMBLE AND SHOULD NOT BE DIRECTLY EDITED
+
+THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
+
+-->
+{{/unless}}
+{{doctype}}
+<html>
+  <head lang="en">
+
+    <title>{{#if config.meta.pageTitle}}{{config.pageTitle}}{{else}}{{config.title}}{{/if}} | An Esri Story Map</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <link type="image/ico" rel="shortcut icon" href="//resources.esri.com/favicon.ico">
+    <link type="image/ico" rel="icon"  href="//resources.esri.com/favicon.ico">
+
+    <meta name="author" content="{{#if config.meta.author}}{{config.meta.author}}{{else}}{{/if}}">
+    <meta name="keywords" content="{{#if config.meta.keywords}}{{config.meta.keywords}}{{else}}Story Map{{/if}}">
+    <meta name="description" content="{{#if config.pageDescription}}{{config.meta.pageDescription}}{{else}}{{config.subtitle}}{{/if}}">
+
+    <!--Facebook Open Graph-->
+
+    <meta property="og:title" content="{{#if config.facebook.title}}{{config.facebook.title}}{{else}}{{config.title}}{{/if}}">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{#if config.facebook.url}}{{config.facebook.url}}{{else}}{{config.meta.url}}{{/if}}">
+    <meta property="og:image" content="{{#if config.facebook.thumbnailURL}}{{config.facebook.thumbnailURL}}{{else}}{{config.meta.thumbnailURL}}{{/if}}">
+    <meta property="og:site_name" content="{{#if config.facebook.siteName}}{{config.facebook.siteName}}{{else}}{{config.meta.author}}{{/if}}">
+    <meta property="og:description" content="{{#if config.facebook.description}}{{config.facebook.description}}{{else}}{{config.subtitle}}{{/if}}">
+    <meta property="fb:app_id" content="{{config.facebook.appID}}" />
+
+    <!--End Facebook-->
+
+    <!--Twitter Card Data-->
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{#if config.twitter.twitterHandle}}{{config.twitter.twitterHandle}}{{else}}EsriStoryMaps{{/if}}">
+    <meta name="twitter:url" content="{{#if config.twitter.url}}{{config.twitter.url}}{{else}}{{config.meta.url}}{{/if}}">
+    <meta name="twitter:title" content="{{#if config.twitter.title}}{{config.twitter.title}}{{else}}{{config.title}}{{/if}}">
+    <meta name="twitter:description" content="{{#if config.twitter.description}}{{config.twitter.description}}{{else}}{{config.subtitle}}{{/if}}">
+    <meta name="twitter:image" content="{{#if config.twitter.thumbnailURL}}{{config.twitter.thumbnailURL}}{{else}}{{config.meta.thumbnailURL}}{{/if}}">
+
+    <!--Twitter Card Data-->
+
+    {{#if advancedSettings.includeDijitCSS}}
+    <link href="//js.arcgis.com/{{advancedSettings.apiVersion}}/js/dojo/dijit/themes/{{advancedSetttings.dijitTheme}}/{{advancedSetttings.dijitTheme}}.css" media="screen" rel="stylesheet" type="text/css">
+    {{/if}}
+    <link href="//js.arcgis.com/{{advancedSettings.apiVersion}}/js/esri/css/esri.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="app/stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 8]>
+    <script type="text/javascript">window.location = "http://browsehappy.com/"</script>
+    <![endif]-->
+
+  </head>
+  <body class="{{advancedSetttings.dijitTheme}}">
+
+    {{>body}}
+    {{#unless production}}
+    <script src="//localhost:35729/livereload.js"></script>
+    {{/unless}}
+
+  </body>
+</html>

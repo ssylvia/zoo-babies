@@ -1,0 +1,32 @@
+{
+  "config": {
+
+    "title": "Zoo Babies",
+    "subtitle": "Add a subtitle",
+    "meta": {
+      "pageTitle": "",
+      "pageDescription": "",
+      "author": "Esri",
+      "keywords": "Zoo, Baby Animals, Story Map",
+      "thumbnailURL": "",
+      "url": ""
+    },
+    "facebook": {
+      "title": "",
+      "description": "",
+      "url": "",
+      "thumbnailURL": "",
+      "siteName": "",
+      "appID": "475867552452282"
+    },
+    "twitter": {
+      "defaultShareText": "",
+      "title": "",
+      "description": "",
+      "url": "",
+      "thumbnailURL": "",
+      "twitterHandle": "EsriStoryMaps"
+    }
+
+  }
+}
