@@ -38,6 +38,12 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
 
     <!--Twitter Card Data-->
     <link href="//js.arcgis.com/3.9/js/esri/css/esri.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="//use.typekit.net/yfa4zwo.js"></script>
+    <script type="text/javascript">
+      try {
+        Typekit.load();
+      } catch (e) {}
+    </script>
     <link href="app/stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
 
     <!--[if lt IE 8]>
@@ -45,7 +51,71 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
             <![endif]-->
   </head>
   <body class="">
-    <h1>Hello World!</h1>
+    <div id="app-load-screen">
+      <div id="loader"></div>
+      <h4 id="loading-message">Loading Zoo Babies</h4>
+    </div>
+    <div id="app-content" class="region-center">
+      <div id="header" class="region-top">
+        <h1 id="title" class="region-left"><span class="accent1">Zoo</span> 
+          <span class="accent2">Babies</span> 
+        </h1>
+        <h2 id="subtitle" class="region-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, quasi autem optio. Autem, at, dolorem, porro saepe laborum reiciendis voluptatibus inventore architecto modi rerum aperiam cum quaerat ullam nihil repellat?</h2>
+        <div id="branding-wrapper" class="region-right">
+          <div id="social">
+            <a id="smLink" class="social-text" href="http://storymaps.esri.com" target="_blank">A story map</a> 
+            <span class="icon-facebook social-share social-text"></span> 
+            <span class="icon-twitter social-share social-text"></span> 
+            <span class="icon-link social-share social-text"></span> 
+          </div><!--/social-->
+          <div id="logo">
+            <a id="logoLink" href="http://www.esri.com" target="_blank">
+              <img id="logoImg" src="resources/images/esriGlobeLogow.png" alt="Esri - Home">
+            </a> <!--/logoLink-->
+          </div><!--/logo-->
+        </div>
+      </div>
+      <div id="app-content" class="region-center">
+      </div>
+    </div>
     <script src="//localhost:35729/livereload.js"></script>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-26529417-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+      var dojoConfig = {
+        parseOnLoad: true,
+        isDebug: false,
+        useDeferredInstrumentation: true,
+        packages: [{
+          name: 'storymaps',
+          location: location.pathname.replace(/\/[^/]+$/, '/') + 'app/javascript'
+        }, {
+          name: 'jquery',
+          location: location.pathname.replace(/\/[^/]+$/, '/') + 'bower_components/jquery/dist'
+        }, {
+          name: 'lib',
+          location: location.pathname.replace(/\/[^/]+$/, '/') + 'bower_components'
+        }]
+      };
+    </script>
+    <script src="//js.arcgis.com/3.9/" type="text/javascript"></script>
+    <script type="text/javascript">
+      require(["storymaps/core/Core"], function(Core) {
+        Core.init();
+      });
+    </script>
   </body>
 </html>

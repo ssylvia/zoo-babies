@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         options: {
           compress: false,
           linenos: true,
-          paths: ['src/app/stylesheets','src/bower_components/'],
+          paths: ['src/app/stylesheets','src/bower_components/','src/resources/fonts/'],
           use: [
             require('nib')
           ],

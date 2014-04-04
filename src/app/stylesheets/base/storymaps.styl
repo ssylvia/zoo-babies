@@ -1,0 +1,106 @@
+@import 'nib/reset'
+global-reset()
+
+@import 'icons/fontello.css'
+@import 'config'
+
+html, body{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#app-load-screen{
+  position: fixed;
+  background-color: loadScreen;
+  height: 100%;
+  width: 100%;
+  z-index: 900;
+}
+
+#loader{
+  position: fixed;
+  top: 50%;
+  right: 50%
+}
+
+#loading-message{
+  position: fixed;
+  font-family: headerFont;
+  top: 50%;
+  right: 30%;
+  width: 40%;
+  text-align: center;
+  margin-top: 65px;
+}
+
+.region-right{
+  position: absolute;
+  right: 0;
+}
+
+.region-left, .region-center, .region-top, .region-bottom{
+  position: absolute;
+  left: 0;
+}
+
+.region-bottom{
+  bottom: 0;
+}
+
+#app-content{
+  h1,h2,h3,h4,h5,h6{
+    font-family headerFont;
+  }
+
+  div,p,li{
+    font-family bodyFont;
+  }
+
+  b, strong{
+    font-weight: bold;
+  }
+
+  i, em{
+    font-style: italic;
+  }
+
+  ol, ul{
+    padding: .2em 0 0 1.5em;
+    list-style-position: inside;
+  }
+
+  ol{
+    list-style-type: decimal;
+  }
+}
+
+.esriLegendService{
+  padding-bottom: 15px;
+}
+
+// Popup modifications
+.esriViewPopup .gallery{
+  height: auto;
+  max-height: 150px;
+}
+
+.esriPopup .maximize, .esriPopup .zoomTo, .esriPopup .editSummarySection{
+  display: none;
+}
+
+/* Custom Webkit Scrollbar */
+body:not(.touch){
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $light-gray;
+  }
+}

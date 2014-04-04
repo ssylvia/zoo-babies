@@ -3,6 +3,10 @@
 
     "title": "Zoo Babies",
     "subtitle": "Add a subtitle",
+    "analytics": {
+      "includeAnalytics": true,
+      "trackingID": "UA-26529417-1"
+    },
     "meta": {
       "pageTitle": "",
       "pageDescription": "",
