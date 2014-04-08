@@ -1,10 +1,16 @@
-define(["dojo/has","/bower_components/zeroclipboard/ZeroClipboard.min.js","jquery/jquery.min"],
-	function(has,ZeroClipboard){
+define(["dojo/has",
+  "/bower_components/zeroclipboard/ZeroClipboard.min.js",
+  "jquery/jquery"],
+	function(has,
+    ZeroClipboard,
+    Jquery){
 	/**
 	* Social Sharing
 	* @class Social Sharing
 	*
 	* Collection of methods to share app with social media sites
+  *
+  * Dependencies: Jquery 1.11
 	*/
 
 	var _page = {
@@ -37,7 +43,7 @@ define(["dojo/has","/bower_components/zeroclipboard/ZeroClipboard.min.js","jquer
     ZeroClipboard.config({moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf' });
 		var bitlyCopy = new ZeroClipboard($("#bitly-copy"));
 
-		bitlyCopy.on("aftercopy",function(client){
+		bitlyCopy.on("dataRequested",function(client){
 			client.setText($("#bitly-link").attr("href"));
 			$("#bitly-copy").html("Copied");
 		});
@@ -47,12 +53,11 @@ define(["dojo/has","/bower_components/zeroclipboard/ZeroClipboard.min.js","jquer
 
 	function getBitlyURL(){
 		var urls = ["http://api.bitly.com/v3/shorten?callback=?", "https://api-ssl.bitly.com/v3/shorten?callback=?"];
-		var url = location.protocol == 'http:' ? urls[0] : urls[1];
+		var url = location.protocol == 'http:' ? urls[1] : urls[1];
 
 		$.getJSON(url,{
 			"format": "json",
-			"apiKey": "R_14fc9f92e48f7c78c21db32bd01f7014",
-			"login": "esristorymaps",
+			"access_token": "5e3c17493db9d008a6b30b7dafa7cbe6359a6f40",
 			"longUrl": decodeURIComponent(_shareOptions.url)
 		},function(response)
 		{

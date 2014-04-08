@@ -59,6 +59,10 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link href="app/stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
 
+    <!--[if lt IE 9]>
+    <script src="bower_components/selectivizr-new/selectivizr.js" type="text/javascript"></script>
+    <script src="bower_components/html5shiv/dist/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
     <!--[if lt IE 8]>
     <script type="text/javascript">window.location = "http://browsehappy.com/"</script>
     <![endif]-->
@@ -69,6 +73,16 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
     <div id="app-load-screen">
       <div id="loader"></div>
       <h4 id="loading-message">Loading {{advancedSettings.appName}}</h4>
+    </div>
+
+    <div id="bitly-overlay" class="modal bitly-modal">
+      <a class="icon-close right" onclick="$('.bitly-modal').removeClass('visible');"></a>
+      <h4>Bitly link to share</h4>
+      <br>
+      <a id="bitly-link" target="_blank"></a>
+      <br>
+      <div id="bitly-copy" class="btn primary">Copy</div>
+      <div id="bitly-close" class="btn primary" onclick="$('.bitly-modal').removeClass('visible');">Close</div>
     </div>
 
     <div id="app-content" class="region-center">
@@ -91,7 +105,7 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
 
     <script type="text/javascript">
     var dojoConfig = {
-      parseOnLoad: true,
+      parseOnLoad: false,
       isDebug: false,
       useDeferredInstrumentation: true,
       packages: [
