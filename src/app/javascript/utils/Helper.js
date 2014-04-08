@@ -1,7 +1,7 @@
 define(["dojo/_base/array",
 	"/bower_components/spin.js/spin.js",
   "jquery/jquery",
-	"storymaps/utils/SocialSharing"],
+  "storymaps/utils/SocialSharing"],
 	function(array,
     Spinner,
     Jquery){

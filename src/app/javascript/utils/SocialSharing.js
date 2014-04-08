@@ -1,8 +1,6 @@
 define(["dojo/has",
-  "/bower_components/zeroclipboard/ZeroClipboard.min.js",
   "jquery/jquery"],
 	function(has,
-    ZeroClipboard,
     Jquery){
 	/**
 	* Social Sharing
@@ -40,13 +38,15 @@ define(["dojo/has",
 		});
 	}
 	else{
-    ZeroClipboard.config({moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf' });
-		var bitlyCopy = new ZeroClipboard($("#bitly-copy"));
+    require(["/bower_components/zeroclipboard/ZeroClipboard.js"],function(ZeroClipboard){
+      ZeroClipboard.config({moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf' });
+      var bitlyCopy = new ZeroClipboard($("#bitly-copy"));
 
-		bitlyCopy.on("dataRequested",function(client){
-			client.setText($("#bitly-link").attr("href"));
-			$("#bitly-copy").html("Copied");
-		});
+      bitlyCopy.on("dataRequested",function(client){
+        client.setText($("#bitly-link").attr("href"));
+        $("#bitly-copy").html("Copied");
+      });
+    });
 	}
 
 	getBitlyURL();
