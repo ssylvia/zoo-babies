@@ -1,18 +1,23 @@
 define(['storymaps/utils/Helper',
   'storymaps/core/Data',
   'storymaps/ui/Map',
-  "esri/tasks/GeometryService"],
+  "esri/tasks/GeometryService",
+  "dojo/on"],
   function(Helper,
     configOptions,
     Map,
-    GeometryService){
+    GeometryService,
+    on){
 
   /**
    * Core
    * @class Core
    */
 
-  var _embed = (top != self) ? true : false;
+  var _embed = (top != self) ? true : false,
+  _readyState = {
+    map: false
+  }
 
   function init()
   {
@@ -31,20 +36,31 @@ define(['storymaps/utils/Helper',
     esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
 
     loadMap();
-
-    appReady();
   }
 
   function loadMap()
   {
     var map = new Map({
-      webmapId: configOptions.webmap
+      webmapId: configOptions.webmap,
+      element: "boundary-map"
+    });
+    map.on("ready",function(){
+      _readyState.map = true;
+      appReady();
     });
   }
 
   function appReady()
   {
-    Helper.removeLoadScreen();
+    var ready = true;
+    for (var i in _readyState){
+      if (!_readyState[i]){
+        ready = false;
+      }
+    }
+    if (ready){
+      Helper.removeLoadScreen();
+    }
   }
 
   return {

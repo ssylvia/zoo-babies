@@ -1,5 +1,5 @@
 
-/* line 12 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/app.styl */
+/* line 14 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/app.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/node_modules/grunt-contrib-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -431,4 +431,33 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 #branding-wrapper [class^="icon-"]:before,
 #branding-wrapper [class*=" icon-"]:before {
   margin: 0;
+}
+
+/* line 57 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/header.styl */
+
+/* line 57 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+
+/* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+.map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+/* line 7 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+.map.active {
+  z-index: 1;
+}
+
+/* line 10 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+
+/* line 10 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+
+/* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+#side-pane {
+  height: 100%;
+  width: 30%;
+  max-width: 750px;
+  min-width: 500px;
 }

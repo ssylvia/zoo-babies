@@ -1,15 +1,15 @@
 define(["dojo/Evented",
   "dojo/_base/declare",
   "dojo/_base/lang",
-  "esri/map",
+  "dojo/on",
   "esri/arcgis/utils"],
   function(Evented,
     declare,
     langs,
-    Map,
+    on,
     arcgisUtils){
 
-    var ZooMap = declare(null,{
+    var Map = declare([Evented],{
 
       webmapId: null,
       element: "map",
@@ -23,17 +23,30 @@ define(["dojo/Evented",
       },
 
       createMap: function(){
-        arcgisUtils.createMap(this.webmapId,this.element,{
+        var deferred = arcgisUtils.createMap(this.webmapId,this.element,{
           mapOptions: {
             sliderPosition: "top-right"
           },
           geometryServiceURL: this.geometryServiceURL
-        }).then(function(response){
         });
+
+        var self = this;
+
+        deferred.then(function(response){
+          var map = response.map;
+
+          on.once(map,"update-end",function(){
+            self.onMapReady();
+          });
+        });
+      },
+
+      onMapReady: function(){
+        this.emit("ready",{});
       }
 
     });
 
-    return ZooMap;
+    return Map;
 
 });
