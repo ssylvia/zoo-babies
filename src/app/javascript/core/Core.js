@@ -1,11 +1,13 @@
 define(['storymaps/utils/Helper',
   'storymaps/core/Data',
   'storymaps/ui/Map',
+  'storymaps/ui/InfoPane',
   "esri/tasks/GeometryService",
   "dojo/on"],
   function(Helper,
     configOptions,
     Map,
+    InfoPane,
     GeometryService,
     on){
 
@@ -35,18 +37,24 @@ define(['storymaps/utils/Helper',
     esri.config.defaults.io.proxyUrl = configOptions.proxyUrl;
     esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
 
-    loadMap();
+    loadMap(configOptions.zooMap);
+    loadInfo('cheetah');
   }
 
-  function loadMap()
+  function loadMap(mapOptions)
   {
-    var map = new Map({
-      webmapId: configOptions.webmap,
-      element: "boundary-map"
-    });
-    map.on("ready",function(){
+    var map = new Map(mapOptions);
+    map.on("loaded",function(){
       _readyState.map = true;
       appReady();
+      var
+    });
+  }
+
+  function loadInfo(animal)
+  {
+    var info = new InfoPane({
+      animal: configOptions.animals[animal]
     });
   }
 

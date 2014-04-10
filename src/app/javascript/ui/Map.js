@@ -42,7 +42,7 @@ define(["dojo/Evented",
       },
 
       onMapReady: function(){
-        this.emit("ready",{});
+        this.emit("loaded",{});
       }
 
     });

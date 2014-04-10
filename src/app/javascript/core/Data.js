@@ -7,7 +7,14 @@ define([],
    */
 
   var configOptions = {
-    webmap: "6062139d42a24ed7841fe42363a841ca",
+    boundaryMap: {
+      webmapId: "6062139d42a24ed7841fe42363a841ca",
+      element: "boundary-map"
+    },
+    zooMap: {
+      webmapId: "705c481ee1b542199d341ba31eb72f68",
+      element: "zoo-map"
+    },
     proxyUrl: "",
     geometryServiceUrl: "http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
     sharingUrl: "http://www.arcgis.com/sharing/rest/content/items",

@@ -3,4 +3,92 @@
   width: 30%;
   max-width: 750px;
   min-width: 500px;
+  overflow: auto;
+}
+
+.infoPane{
+  padding: 25px;
+}
+
+.slider-wrapper{
+  position: relative;
+  height: 400px;
+
+  ul, ul li {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  ul li{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .dots{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom:  20px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dots li{
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 4px;
+
+    text-indent: -999em;
+
+    border: 2px solid #fff;
+    border-radius: 6px;
+
+    cursor: pointer;
+    opacity: .6;
+
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+
+    &.active{
+      background: #fff;
+      opacity: .8;
+    }
+  }
+}
+
+.text-content{
+  padding-right: 80px;
+
+  h3,h6,p{
+    padding: 0;
+    margin: 0;
+  }
+
+  h3{
+    font-size: 70px;
+    line-height: 1.5;
+  }
+
+  h6{
+    font-size: 18px;
+
+    &.birthday-text{
+      margin-bottom: 15px;
+    }
+  }
+
+  p{
+    font-size: 16px;
+  }
 }

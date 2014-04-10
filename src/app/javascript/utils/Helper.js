@@ -63,7 +63,12 @@ define(["dojo/_base/array",
 			});
 		});
 
-		$("#filter-content").css("max-height", $("#playlist").height() - 50);
+    var sideWidth = $("#side-pane").width() - 50;
+
+		$(".slider-wrapper, .image-slider, .image-slide").css({
+      "height": sideWidth * (2/3),
+      "width": sideWidth
+    });
 	}
 
 	return {
