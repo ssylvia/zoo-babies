@@ -47,7 +47,6 @@ define(['storymaps/utils/Helper',
     map.on("loaded",function(){
       _readyState.map = true;
       appReady();
-      var
     });
   }
 

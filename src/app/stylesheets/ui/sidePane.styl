@@ -14,6 +14,26 @@
   position: relative;
   height: 400px;
 
+  .slide-nav{
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    font-size: 60px;
+    color: #fff;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 1;
+
+    &.next-slide{
+      right: 0;
+    }
+
+    &:hover{
+      opacity: 0.9;
+    }
+  }
+
   ul, ul li {
     padding: 0;
     margin: 0;
@@ -62,6 +82,10 @@
 
     &.active{
       background: #fff;
+      opacity: .8;
+    }
+
+    &:hover{
       opacity: .8;
     }
   }

@@ -27,6 +27,8 @@ define(["dojo/Evented",
         var htmlString = '\
           <div class="InfoPane ' + animal.species + '">\
             <div class="slider-wrapper">\
+              <i class="slide-nav prev-slide icon-left-open"></i>\
+              <i class="slide-nav next-slide icon-right-open"></i>\
               <div class="image-slider">\
                 <ul></ul>\
               </div>\
@@ -47,13 +49,29 @@ define(["dojo/Evented",
 
       buildImageGallery: function(infoPane,images){
 
+        var self = this;
+
         array.forEach(images,function(img){
           infoPane.find(".image-slider ul").append('<li class="image-slide" style="background-image: url(' + img + ');"></li>');
         });
 
-        this.slider = infoPane.find(".image-slider").unslider({
+        self.slider = infoPane.find(".image-slider").unslider({
           dots: true
         });
+
+        if(images.length > 1){
+          infoPane.find(".slide-nav").show();
+          var slidePrev = infoPane.find(".prev-slide");
+          var slideNext = infoPane.find(".next-slide");
+
+          slidePrev.click(function(){
+            self.slider.data().unslider.prev();
+          });
+
+          slideNext.click(function(){
+            self.slider.data().unslider.next();
+          });
+        }
 
         var sideWidth = $("#side-pane").width() - 50;
 
