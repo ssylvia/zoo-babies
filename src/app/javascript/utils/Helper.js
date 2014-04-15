@@ -1,7 +1,7 @@
-define(["dojo/_base/array",
-	"/bower_components/spin.js/spin.js",
-  "jquery/jquery",
-  "storymaps/utils/SocialSharing"],
+define(['dojo/_base/array',
+	'lib/spin.js/spin',
+  'jquery/jquery',
+  'storymaps/utils/SocialSharing'],
 	function(array,
     Spinner,
     Jquery){
@@ -16,8 +16,8 @@ define(["dojo/_base/array",
 
 	// Show ajax laoder on load
 	var _appLoader = ajaxLoader('loader'),
-	_loadingMessage = $("#loading-message"),
-	_appLoadScreen = $("#app-load-screen");
+	_loadingMessage = $('#loading-message'),
+	_appLoadScreen = $('#app-load-screen');
 
 	function ajaxLoader(elementId)
 	{
@@ -48,26 +48,26 @@ define(["dojo/_base/array",
 
 	function regionLayout()
 	{
-		$(".region-center").each(function(){
-			var l = $(this).siblings(".region-left:visible").outerWidth(),
-				r = $(this).siblings(".region-right:visible").outerWidth(),
-				t = $(this).siblings(".region-top:visible").outerHeight(),
-				b = $(this).siblings(".region-bottom:visible").outerHeight(),
+		$('.region-center').each(function(){
+			var l = $(this).siblings('.region-left:visible').outerWidth(),
+				r = $(this).siblings('.region-right:visible').outerWidth(),
+				t = $(this).siblings('.region-top:visible').outerHeight(),
+				b = $(this).siblings('.region-bottom:visible').outerHeight(),
 				x = l + r,
 				y = t + b;
 			$(this).css({
-				"top": t || 0,
-				"left": l || 0,
-				"height" : $(this).parent().outerHeight() - y,
-				"width" : $(this).parent().outerWidth() - x
+				'top': t || 0,
+				'left': l || 0,
+				'height' : $(this).parent().outerHeight() - y,
+				'width' : $(this).parent().outerWidth() - x
 			});
 		});
 
-    var sideWidth = $("#side-pane").width() - 50;
+    var sideWidth = $('#side-pane').width() - 50;
 
-		$(".slider-wrapper, .image-slider, .image-slide").css({
-      "height": sideWidth * (2/3),
-      "width": sideWidth
+		$('.slider-wrapper, .image-slider, .image-slide').css({
+      'height': sideWidth * (2/3),
+      'width': sideWidth
     });
 	}
 

@@ -1,9 +1,9 @@
-define(["dojo/Evented",
-  "dojo/_base/declare",
-  "dojo/_base/lang",
-  "dojo/_base/array",
-  "jquery/jquery",
-  "/bower_components/unslider/src/unslider.js"],
+define(['dojo/Evented',
+  'dojo/_base/declare',
+  'dojo/_base/lang',
+  'dojo/_base/array',
+  'jquery/jquery',
+  '/bower_components/unslider/src/unslider.js'],
   function(Evented,
     declare,
     langs,
@@ -42,7 +42,7 @@ define(["dojo/Evented",
           </div>';
 
         var infoPane = $(htmlString);
-        $("#side-pane").append(infoPane);
+        $('#side-pane').append(infoPane);
 
         this.buildImageGallery(infoPane,animal.images);
       },
@@ -52,17 +52,17 @@ define(["dojo/Evented",
         var self = this;
 
         array.forEach(images,function(img){
-          infoPane.find(".image-slider ul").append('<li class="image-slide" style="background-image: url(' + img + ');"></li>');
+          infoPane.find('.image-slider ul').append('<li class="image-slide" style="background-image: url(' + img + ');"></li>');
         });
 
-        self.slider = infoPane.find(".image-slider").unslider({
+        self.slider = infoPane.find('.image-slider').unslider({
           dots: true
         });
 
         if(images.length > 1){
-          infoPane.find(".slide-nav").show();
-          var slidePrev = infoPane.find(".prev-slide");
-          var slideNext = infoPane.find(".next-slide");
+          infoPane.find('.slide-nav').show();
+          var slidePrev = infoPane.find('.prev-slide');
+          var slideNext = infoPane.find('.next-slide');
 
           slidePrev.click(function(){
             self.slider.data().unslider.prev();
@@ -73,11 +73,11 @@ define(["dojo/Evented",
           });
         }
 
-        var sideWidth = $("#side-pane").width() - 50;
+        var sideWidth = $('#side-pane').width() - 50;
 
-        $(".slider-wrapper, .image-slider, .image-slide").css({
-          "height": sideWidth * (2/3),
-          "width": sideWidth
+        $('.slider-wrapper, .image-slider, .image-slide').css({
+          'height': sideWidth * (2/3),
+          'width': sideWidth
         });
       }
 

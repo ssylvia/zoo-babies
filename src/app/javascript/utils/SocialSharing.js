@@ -1,7 +1,9 @@
-define(["dojo/has",
-  "jquery/jquery"],
+define(['dojo/has',
+  'jquery/jquery',
+  'lib/zeroclipboard/ZeroClipboard'],
 	function(has,
-    Jquery){
+    Jquery,
+    ZeroClipboard){
 	/**
 	* Social Sharing
 	* @class Social Sharing
@@ -12,12 +14,12 @@ define(["dojo/has",
 	*/
 
 	var _page = {
-		title: encodeURIComponent($("meta[property='og:title']").attr("content")),
-		summary: encodeURIComponent($("meta[property='og:description']").attr("content")),
-		url: encodeURIComponent($("meta[property='og:url']").attr("content")),
-		thumbnail: encodeURIComponent($("meta[property='og:image']").attr("content")),
-		twitterText: encodeURIComponent($("meta[name='twitter:title']").attr("content")),
-		twitterHandle: encodeURIComponent($("meta[name='twitter:site']").attr("content").replace("@",""))
+		title: encodeURIComponent($('meta[property="og:title"]').attr('content')),
+		summary: encodeURIComponent($('meta[property="og:description"]').attr('content')),
+		url: encodeURIComponent($('meta[property="og:url"]').attr('content')),
+		thumbnail: encodeURIComponent($('meta[property="og:image"]').attr('content')),
+		twitterText: encodeURIComponent($('meta[name="twitter:title"]').attr('content')),
+		twitterHandle: encodeURIComponent($('meta[name="twitter:site"]').attr('content').replace('@',''))
 	};
 
 	var _shareOptions = {
@@ -31,45 +33,44 @@ define(["dojo/has",
 	};
 
 	// Copy bitly link to clipboard
-	if (has("touch")){
-		$("#bitly-copy").hide();
-		$("#bitly-close").css({
-			"margin-top": 24
+	if (has('touch')){
+		$('#bitly-copy').hide();
+		$('#bitly-close').css({
+			'margin-top': 24
 		});
 	}
 	else{
-    require(["/bower_components/zeroclipboard/ZeroClipboard.js"],function(ZeroClipboard){
-      ZeroClipboard.config({moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf' });
-      var bitlyCopy = new ZeroClipboard($("#bitly-copy"));
+    ZeroClipboard.config({moviePath: 'resources/utils/ZeroClipboard.swf' });
+    var bitlyCopy = new ZeroClipboard($('#bitly-copy'));
 
-      bitlyCopy.on("dataRequested",function(client){
-        client.setText($("#bitly-link").attr("href"));
-        $("#bitly-copy").html("Copied");
-      });
+    bitlyCopy.on('dataRequested',function(client){
+      client.setText($('#bitly-link').attr('href'));
+      $('#bitly-copy').html('Copied');
     });
 	}
 
 	getBitlyURL();
 
 	function getBitlyURL(){
-		var urls = ["http://api.bitly.com/v3/shorten?callback=?", "https://api-ssl.bitly.com/v3/shorten?callback=?"];
+		var urls = ['http://api.bitly.com/v3/shorten?callback=?', 'https://api-ssl.bitly.com/v3/shorten?callback=?'];
 		var url = location.protocol == 'http:' ? urls[1] : urls[1];
 
 		$.getJSON(url,{
-			"format": "json",
-			"access_token": "5e3c17493db9d008a6b30b7dafa7cbe6359a6f40",
-			"longUrl": decodeURIComponent(_shareOptions.url)
+			'format': 'json',
+			'access_token': '5e3c17493db9d008a6b30b7dafa7cbe6359a6f40',
+			'longUrl': decodeURIComponent(_shareOptions.url)
 		},function(response)
 		{
-			if( ! response || ! response || ! response.data.url )
+			if( ! response || ! response || ! response.data.url ){
 				return;
+      }
 
 			_shareOptions.url = encodeURIComponent(response.data.url);
 		});
 	}
 
-	$(".social-share").click(function(){
-		if ($(this).hasClass("icon-facebook")) {
+	$('.social-share').click(function(){
+		if ($(this).hasClass('icon-facebook')) {
 			var facebookOptions = '&p[title]=' + _shareOptions.title
 				+ '&p[summary]=' + _shareOptions.summary
 				+ '&p[url]=' + _shareOptions.url
@@ -81,7 +82,7 @@ define(["dojo/has",
 				'toolbar=0,status=0,width=626,height=436'
 			);
 		}
-		else if($(this).hasClass("icon-twitter")) {
+		else if($(this).hasClass('icon-twitter')) {
 			var twitterOptions = 'text=' + _shareOptions.twitterText
 				+ '&url=' + _shareOptions.url
 				+ '&via=' + _shareOptions.twitterHandle
@@ -94,10 +95,10 @@ define(["dojo/has",
 			);
 		}
 		else{
-			$("#bitly-link").attr("href",decodeURIComponent(_shareOptions.url)).html(decodeURIComponent(_shareOptions.url));
+			$('#bitly-link').attr('href',decodeURIComponent(_shareOptions.url)).html(decodeURIComponent(_shareOptions.url));
 
-			$("#bitly-copy").html("Copy");
-			$(".bitly-modal").addClass("visible");
+			$('#bitly-copy').html('Copy');
+			$('.bitly-modal').addClass('visible');
 		}
 	});
 

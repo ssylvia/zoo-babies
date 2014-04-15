@@ -129,7 +129,7 @@ THIS PAGE IS INTENDED FOR PREVIEW AND TESTING PURPOSES ONLY
   <script src="//js.arcgis.com/{{advancedSettings.apiVersion}}{{#if advancedSettings.useDevAPI}}dev{{/if}}/" type="text/javascript"></script>
   <script type="text/javascript">
   {{#if production}}
-    // require(["app/javascript/<%= data.advancedSettings.appIdentifier %>-viewer.min.js"]);
+    require(["app/javascript/app.min.js"]);
   {{else}}
     require(["storymaps/core/Core"],function(Core){
       Core.init();

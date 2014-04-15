@@ -2,8 +2,8 @@ define(['storymaps/utils/Helper',
   'storymaps/core/Data',
   'storymaps/ui/Map',
   'storymaps/ui/InfoPane',
-  "esri/tasks/GeometryService",
-  "dojo/on"],
+  'esri/tasks/GeometryService',
+  'dojo/on'],
   function(Helper,
     configOptions,
     Map,
@@ -19,17 +19,17 @@ define(['storymaps/utils/Helper',
   var _embed = (top != self) ? true : false,
   _readyState = {
     map: false
-  }
+  };
 
   function init()
   {
     Helper.enableRegionLayout();
 
-    if (configOptions.sharingUrl && location.protocol === "https:"){
+    if (configOptions.sharingUrl && location.protocol === 'https:'){
       configOptions.sharingUrl = configOptions.sharingUrl.replace('http:', 'https:');
     }
 
-    if (configOptions.geometryServiceUrl && location.protocol === "https:"){
+    if (configOptions.geometryServiceUrl && location.protocol === 'https:'){
       configOptions.geometryServiceUrl = configOptions.geometryServiceUrl.replace('http:', 'https:');
     }
 
@@ -39,12 +39,16 @@ define(['storymaps/utils/Helper',
 
     loadMap(configOptions.zooMap);
     loadInfo('cheetah');
+
+    if(_embed){
+      console.log(_embed);
+    }
   }
 
   function loadMap(mapOptions)
   {
     var map = new Map(mapOptions);
-    map.on("loaded",function(){
+    map.on('loaded',function(){
       _readyState.map = true;
       appReady();
     });
@@ -55,6 +59,7 @@ define(['storymaps/utils/Helper',
     var info = new InfoPane({
       animal: configOptions.animals[animal]
     });
+    console.log(info);
   }
 
   function appReady()
@@ -72,6 +77,6 @@ define(['storymaps/utils/Helper',
 
   return {
     init: init
-  }
+  };
 
 });
