@@ -92,7 +92,7 @@ define(['dojo/Evented',
       });
 
       var slider = elementObj.find('.image-slider').unslider({
-        dots: true
+        dots: images.length > 1 ? true : false
       });
 
       if(images.length > 1){
