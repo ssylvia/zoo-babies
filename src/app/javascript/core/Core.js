@@ -17,6 +17,7 @@ define(['storymaps/utils/Helper',
    */
 
   var _embed = (top != self) ? true : false,
+  _infoPane,
   _readyState = {
     map: false
   };
@@ -38,7 +39,7 @@ define(['storymaps/utils/Helper',
     esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
 
     loadMap(configOptions.zooMap);
-    loadInfo('cheetah');
+    loadInfo();
 
     if(_embed){
       console.log(_embed);
@@ -54,12 +55,18 @@ define(['storymaps/utils/Helper',
     });
   }
 
-  function loadInfo(animal)
+  function loadInfo()
   {
-    var info = new InfoPane({
-      animal: configOptions.animals[animal]
-    });
-    console.log(info);
+    var info = new InfoPane();
+    _infoPane = info;
+
+    // createFirstPane
+    changeInfoPane('cheetah');
+  }
+
+  function changeInfoPane(animal)
+  {
+    _infoPane.changePane(animal);
   }
 
   function appReady()
