@@ -67,6 +67,15 @@ module.exports = function(grunt) {
           src: ['bower_components/zeroclipboard/ZeroClipboard.swf'],
           dest: 'src/resources/utils/'
         }]
+      },
+      deploy: {
+        files: [{
+          expand: true,
+          flatten: true,
+          cwd: 'src/resources/buildTools',
+          src: ['deploy/sftp-config.json'],
+          dest: 'deploy'
+        }]
       }
     },
 
@@ -163,7 +172,8 @@ module.exports = function(grunt) {
     'assemble:build',
     'stylus:build',
     'requirejs',
-    'clean:buildTools'
+    'clean:buildTools',
+    'copy:deploy'
   ]);
 
 };
