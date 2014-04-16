@@ -1,19 +1,23 @@
 define(['dojo/Evented',
   'dojo/_base/declare',
   'dojo/_base/lang',
+  'dojo/on',
   'dojo/_base/array',
   'storymaps/core/Data',
   'jquery/jquery',
-  'lib/unslider/src/unslider'],
+  'lib/unslider/src/unslider',
+  'lib/waitForImages/dist/jquery.waitforimages.min'],
   function(Evented,
     declare,
     langs,
+    on,
     array,
     configOptions,
     jquery,
-    unslider){
+    unslider,
+    waitForImages){
 
-    var InfoPane = declare(null,{
+    var InfoPane = declare(Evented,{
 
       animal: null,
       infoPanes: {},
@@ -30,24 +34,45 @@ define(['dojo/Evented',
         if (this.infoPanes[animal]){
           this.prevPane = this.currentPane;
           this.currentPane = this.infoPanes[animal];
+
+          if(this.prevPane && this.prevPane.elementObj){
+            this.prevPane.elementObj.removeClass('active');
+          }
+          this.currentPane.elementObj.addClass('active');
         }
         else{
+          this.readyState = {
+            images: false
+          };
           this.prevPane = this.currentPane;
           this.currentPane = createNewPane(this,animal);
         }
-
-        if(this.prevPane && this.prevPane.elementObj){
-          this.prevPane.elementObj.removeClass('active');
-        }
-        this.currentPane.elementObj.addClass('active');
       },
+
+      checkLoadState: function()
+      {
+        var ready = true;
+        for (var i in this.readyState){
+          if (!this.readyState[i]){
+            ready = false;
+          }
+        }
+        if (ready){
+          this.emit('loaded',this.currentPane);
+
+          if(this.prevPane && this.prevPane.elementObj){
+            this.prevPane.elementObj.removeClass('active');
+          }
+          this.currentPane.elementObj.addClass('active');
+        }
+      }
 
     });
 
     function createNewPane(self,animal)
     {
       var elementObj = buildHtml(animal);
-      var imageSlider = buildImageGallery(elementObj,animal);
+      var imageSlider = buildImageGallery(self,elementObj,animal);
       var infoPane = {
         elementObj: elementObj,
         imageSlider: imageSlider
@@ -83,12 +108,20 @@ define(['dojo/Evented',
       return elementObj;
     }
 
-    function buildImageGallery(elementObj,animal)
+    function buildImageGallery(self,elementObj,animal)
     {
       var images = configOptions.animals[animal].images;
 
       array.forEach(images,function(img){
         elementObj.find('.image-slider ul').append('<li class="image-slide" style="background-image: url(' + img + ');"></li>');
+      });
+
+      elementObj.find('.image-slider').waitForImages({
+        finished: function(){
+          self.readyState.images = true;
+          self.checkLoadState();
+        },
+        waitForAll: true
       });
 
       var slider = elementObj.find('.image-slider').unslider({

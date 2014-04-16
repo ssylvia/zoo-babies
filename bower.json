@@ -23,6 +23,7 @@
     "foundation": "~5.2.2",
     "html5shiv": "~3.7.0",
     "selectivizr-new": "~1.0.3",
-    "unslider": "*"
+    "unslider": "*",
+    "waitForImages": "~1.4.2"
   }
 }

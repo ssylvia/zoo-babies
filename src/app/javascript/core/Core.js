@@ -19,7 +19,8 @@ define(['storymaps/utils/Helper',
   var _embed = (top != self) ? true : false,
   _infoPane,
   _readyState = {
-    map: false
+    map: false,
+    infoPane: false
   };
 
   function init()
@@ -59,6 +60,11 @@ define(['storymaps/utils/Helper',
   {
     var info = new InfoPane();
     _infoPane = info;
+
+    info.on('loaded',function(){
+      _readyState.infoPane = true;
+      appReady();
+    });
 
     // createFirstPane
     changeInfoPane('cheetah');
