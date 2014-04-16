@@ -42,6 +42,16 @@ module.exports = function(grunt) {
       buildTools: ['deploy/resources/buildTools']
     },
 
+    concat: {
+      options: {
+        seperator: ';'
+      },
+      oldIE: {
+        src: ['bower_components/html5shiv/dist/html5shiv.js','bower_components/selectivizr-new/selectivizr.js'],
+        dest: 'deploy/app/javascript/oldIE.min.js'
+      }
+    },
+
     connect: {
       dev: {
         options:{
@@ -172,6 +182,7 @@ module.exports = function(grunt) {
     'assemble:build',
     'stylus:build',
     'requirejs',
+    'concat:oldIE',
     'clean:buildTools',
     'copy:deploy'
   ]);
