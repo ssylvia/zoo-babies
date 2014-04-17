@@ -69,6 +69,11 @@ define(['dojo/_base/array',
       'height': sideWidth * (2/3),
       'width': sideWidth
     });
+
+    $('.map-toggle-wrapper').css({
+      'top': (sideWidth * (2/3)) + 60,
+      'left': sideWidth -10
+    });
 	}
 
 	return {

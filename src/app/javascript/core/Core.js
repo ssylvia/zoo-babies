@@ -53,6 +53,10 @@ define(['storymaps/utils/Helper',
     map.on('loaded',function(){
       _readyState.map = true;
       appReady();
+
+      if (mapOptions === configOptions.zooMap){
+        loadMap(configOptions.boundaryMap);
+      }
     });
   }
 
@@ -84,7 +88,20 @@ define(['storymaps/utils/Helper',
       }
     }
     if (ready){
+      addEvents();
       Helper.removeLoadScreen();
+    }
+  }
+
+  function addEvents()
+  {
+    $('.map-toggle-wrapper').click(toggleMaps);
+  }
+
+  function toggleMaps()
+  {
+    if (!$(this).hasClass('active')){
+      $('.zoo, .boundary').toggleClass('active');
     }
   }
 
