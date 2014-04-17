@@ -71,7 +71,7 @@ define(['storymaps/utils/Helper',
     });
 
     // createFirstPane
-    changeInfoPane('cheetah');
+    changeInfoPane('lion');
   }
 
   function changeInfoPane(animal)
