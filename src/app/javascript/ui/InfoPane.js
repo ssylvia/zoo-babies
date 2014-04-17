@@ -31,6 +31,9 @@ define(['dojo/Evented',
       },
 
       changePane: function(animal){
+        if(this.currentPane){
+          this.currentPane.imageSlider.data().unslider.stop();
+        }
         if (this.infoPanes[animal]){
           this.prevPane = this.currentPane;
           this.currentPane = this.infoPanes[animal];
@@ -39,6 +42,7 @@ define(['dojo/Evented',
             this.prevPane.elementObj.removeClass('active');
           }
           this.currentPane.elementObj.addClass('active');
+          this.currentPane.imageSlider.data().unslider.play();
         }
         else{
           this.readyState = {
@@ -64,6 +68,7 @@ define(['dojo/Evented',
             this.prevPane.elementObj.removeClass('active');
           }
           this.currentPane.elementObj.addClass('active');
+          this.currentPane.imageSlider.data().unslider.play();
         }
       }
 
@@ -140,6 +145,8 @@ define(['dojo/Evented',
         slideNext.click(function(){
           slider.data().unslider.next();
         });
+
+        slider.data().unslider.stop();
       }
 
       var sideWidth = $('#side-pane').width() - 50;

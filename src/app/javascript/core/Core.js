@@ -17,11 +17,12 @@ define(['storymaps/utils/Helper',
    */
 
   var _embed = (top != self) ? true : false,
-  _infoPane,
   _readyState = {
-    map: false,
-    infoPane: false
-  };
+    map: 0,
+    infoPane: 0
+  },
+  _infoPane,
+  _currentAnimal;
 
   function init()
   {
@@ -45,13 +46,15 @@ define(['storymaps/utils/Helper',
     if(_embed){
       console.log(_embed);
     }
+
+    window.test = changeAnimal;
   }
 
   function loadMap(mapOptions)
   {
     var map = new Map(mapOptions);
     map.on('loaded',function(){
-      _readyState.map = true;
+      _readyState.map++;
       appReady();
 
       if (mapOptions === configOptions.zooMap){
@@ -66,16 +69,22 @@ define(['storymaps/utils/Helper',
     _infoPane = info;
 
     info.on('loaded',function(){
-      _readyState.infoPane = true;
+      _readyState.infoPane++;
       appReady();
     });
 
     // createFirstPane
-    changeInfoPane('lion');
+    for (var i in configOptions.animals){
+      if (configOptions.animals.hasOwnProperty(i)) {
+        changeAnimal(i);
+        break;
+      }
+    }
   }
 
-  function changeInfoPane(animal)
+  function changeAnimal(animal)
   {
+    _currentAnimal = animal;
     _infoPane.changePane(animal);
   }
 
@@ -83,7 +92,7 @@ define(['storymaps/utils/Helper',
   {
     var ready = true;
     for (var i in _readyState){
-      if (!_readyState[i]){
+      if (_readyState[i] === 0){
         ready = false;
       }
     }
