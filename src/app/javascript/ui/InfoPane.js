@@ -101,7 +101,6 @@ define(['dojo/Evented',
           </div>\
           <div class="text-content">\
             <h3 class="species-text">' + dataObj.species + '</h3>\
-            <h6 class="name-text"><strong>Name: </strong>' + dataObj.name + '</h6>\
             <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\
             <p class="descriptive-text">' + dataObj.text + '</p>\
           </div>\
