@@ -6,9 +6,71 @@
   overflow: auto;
 }
 
+#animal-selector{
+  position: absolute;
+  margin-top: -15px;
+  left: 15px;
+  z-index: 10;
+
+  .selector-wrapper{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-left:10px;
+
+    &:hover, &.active{
+      margin: -2px -2px 0 8px;
+    }
+
+    &:hover .selector, &.active .selector{
+      border: 2px solid selector-highlight;
+      color: white !important;
+    }
+
+    &.active .selection-arrow{
+      display: block !important;
+    }
+  }
+
+  .selector{
+    position: relative;
+    color: white;
+    height: 30px;
+    width: 30px;
+    font-weight: 300;
+    line-height: 1.9;
+    border-radius: 17px;
+    cursor: pointer
+    z-index: 1;
+  }
+
+  &.zoo .selector{
+    background-color: accent1;
+    color: lighten(accent1, 70%);
+  }
+
+  &.boundary .selector{
+    background-color: accent2;
+    color: lighten(accent2, 70%);
+  }
+
+  .selection-arrow{
+    display: none;
+    position: absolute;
+    top: 28px;
+    left: 11px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 15px solid selector-highlight;
+    z-index:0;
+  }
+}
+
 .info-pane{
   display: none;
-  padding: 25px;
+  padding: 40px 25px 25px 25px;
 
   &.active{
     display: block;

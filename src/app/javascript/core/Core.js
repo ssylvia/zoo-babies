@@ -40,12 +40,13 @@ define(['storymaps/utils/Helper',
     esri.config.defaults.io.proxyUrl = configOptions.proxyUrl;
     esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
 
-    loadMap(configOptions.zooMap);
-    loadInfo();
-
     if(_embed){
       console.log(_embed);
     }
+
+    createAnimalSelectors();
+    loadMap(configOptions.zooMap);
+    loadInfo();
 
     window.test = changeAnimal;
   }
@@ -84,8 +85,10 @@ define(['storymaps/utils/Helper',
 
   function changeAnimal(animal)
   {
-    _currentAnimal = animal;
-    _infoPane.changePane(animal);
+    if (_currentAnimal != animal){
+      _currentAnimal = animal;
+      _infoPane.changePane(animal);
+    }
   }
 
   function appReady()
@@ -110,8 +113,35 @@ define(['storymaps/utils/Helper',
   function toggleMaps()
   {
     if (!$(this).hasClass('active')){
-      $('.zoo, .boundary').toggleClass('active');
+      $('.zoo, .boundary').not('#animal-selector').toggleClass('active');
+      $('#animal-selector').toggleClass('zoo boundary');
     }
+  }
+
+  function createAnimalSelectors()
+  {
+    var i = 1;
+    for (var obj in configOptions.animals){
+      if (configOptions.animals.hasOwnProperty(obj)) {
+
+        var htmlString = '\
+          <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-animal="' + obj + '">\
+            <div class="selection-arrow"></div>\
+            <div class="selector">' + i + '</div>\
+          </div>';
+
+        $('#animal-selector').append(htmlString);
+
+        i++;
+
+      }
+    }
+
+    $('#animal-selector .selector-wrapper').click(function(){
+      $('#animal-selector .selector-wrapper').removeClass('active');
+      $(this).addClass('active');
+      changeAnimal($(this).attr('data-animal'));
+    });
   }
 
   return {
