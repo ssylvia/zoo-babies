@@ -22,6 +22,8 @@ define(['storymaps/utils/Helper',
     infoPane: 0
   },
   _infoPane,
+  _zooMap,
+  _boundaryMap,
   _currentAnimal;
 
   function init()
@@ -47,8 +49,6 @@ define(['storymaps/utils/Helper',
     createAnimalSelectors();
     loadMap(configOptions.zooMap);
     loadInfo();
-
-    window.test = changeAnimal;
   }
 
   function loadMap(mapOptions)
@@ -60,8 +60,19 @@ define(['storymaps/utils/Helper',
 
       if (mapOptions === configOptions.zooMap){
         loadMap(configOptions.boundaryMap);
+        _zooMap.selectAnimal(_currentAnimal);
+      }
+      else{
+        _boundaryMap.selectAnimal(_currentAnimal);
       }
     });
+
+    if (mapOptions.element === 'zoo-map'){
+      _zooMap = map;
+    }
+    else{
+      _boundaryMap = map;
+    }
   }
 
   function loadInfo()
@@ -88,6 +99,13 @@ define(['storymaps/utils/Helper',
     if (_currentAnimal != animal){
       _currentAnimal = animal;
       _infoPane.changePane(animal);
+      if (_zooMap){
+        _zooMap.selectAnimal(animal);
+      }
+      if (_boundaryMap){
+        _boundaryMap.selectAnimal(animal);
+      }
+
     }
   }
 

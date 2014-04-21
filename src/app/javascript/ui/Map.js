@@ -3,20 +3,22 @@ define(['dojo/Evented',
   'dojo/_base/lang',
   'dojo/on',
   'dojo/_base/array',
-  'esri/arcgis/utils'],
+  'esri/arcgis/utils',
+  'esri/tasks/query'],
   function(Evented,
     declare,
     langs,
     on,
     array,
-    arcgisUtils){
+    arcgisUtils,
+    Query){
 
     var Map = declare([Evented],{
 
       webmapId: null,
       element: 'map',
       geometryServiceURL: 'http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer',
-      animalLayer: null,
+      boundaryLayers: {},
 
       constructor: function(options){
 
@@ -37,6 +39,7 @@ define(['dojo/Evented',
 
         deferred.then(function(response){
           var map = response.map;
+          self.map = map;
 
           selectAnimalLayer(self,map);
 
@@ -44,6 +47,28 @@ define(['dojo/Evented',
             self.onMapReady();
           });
         });
+      },
+
+      selectAnimal: function(animal){
+
+        if (this.element === 'zoo-map'){
+          var query = new Query();
+          query.returnGeometry = true;
+          // // query.where =
+          // this.animalLayer.queryFeatures(query,function(results){
+
+          // });
+        }
+        else if (this.element === 'boundary-map' && this.boundaryLayers[animal]){
+          this.boundaryLayers.centroid.setDefinitionExpression('animal NOT LIKE \'' + animal + '\'');
+          if (this.currentLayer){
+            this.currentLayer.hide();
+          }
+          this.currentLayer = this.boundaryLayers[animal];
+          this.currentLayer.show();
+          this.map.setExtent(this.currentLayer.initialExtent,true);
+        }
+
       },
 
       onMapReady: function(){
@@ -54,11 +79,22 @@ define(['dojo/Evented',
 
     function selectAnimalLayer(self,map)
     {
-      array.forEach(map.layerIds,function(lyr){
-        if(lyr.toLowerCase().search('zoo') >= 0){
-          self.animalLayer = map.getLayer(lyr);
-        }
-      });
+      if (self.element === 'boundary-map'){
+        array.forEach(map.graphicsLayerIds,function(lyr){
+          if(lyr.toLowerCase().search('zoo') >= 0){
+            var layer = map.getLayer(lyr);
+            self.boundaryLayers[layer.name] = layer;
+          }
+        });
+      }
+      else{
+        array.forEach(map.graphicsLayerIds,function(lyr){
+          if(lyr.toLowerCase().search('zoo') >= 0){
+            self.animalLayer = map.getLayer(lyr);
+          }
+        });
+      }
+      window.animalLayer = self.animalLayer;
     }
 
     return Map;
