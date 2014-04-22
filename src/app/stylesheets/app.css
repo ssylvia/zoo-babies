@@ -1,5 +1,5 @@
 
-/* line 14 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/app.styl */
+/* line 17 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/app.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/node_modules/grunt-contrib-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -788,4 +788,35 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 #boundary-toggle-wrapper .map-toggle {
   background-color: #5faf00;
   color: #d1ff9b;
+}
+
+/* line 268 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+
+/* line 268 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+#fullscreen-button {
+  display: none;
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+/* line 7 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 9 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+.embed #header {
+  height: 51px;
+  min-height: 0;
+}
+
+/* line 13 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+.embed #header #fullscreen-button {
+  display: block;
+}
+
+/* line 17 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+.embed #header #title,
+.embed #header #subtitle,
+.embed #header #branding-wrapper {
+  display: none;
 }

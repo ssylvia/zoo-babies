@@ -26,26 +26,29 @@ define(['storymaps/utils/Helper',
   _boundaryMap,
   _currentAnimal;
 
+  if(false || _embed){
+    $('body').addClass('embed');
+    $('#fullscreen-button').click(function(){
+      window.open(location.href,null,'channelmode=yes,fullscreen=yes');
+    });
+  }
+
+  Helper.enableRegionLayout();
+
+  if (configOptions.sharingUrl && location.protocol === 'https:'){
+    configOptions.sharingUrl = configOptions.sharingUrl.replace('http:', 'https:');
+  }
+
+  if (configOptions.geometryServiceUrl && location.protocol === 'https:'){
+    configOptions.geometryServiceUrl = configOptions.geometryServiceUrl.replace('http:', 'https:');
+  }
+
+  esri.arcgis.utils.arcgisUrl = configOptions.sharingUrl;
+  esri.config.defaults.io.proxyUrl = configOptions.proxyUrl;
+  esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
+
   function init()
   {
-    Helper.enableRegionLayout();
-
-    if (configOptions.sharingUrl && location.protocol === 'https:'){
-      configOptions.sharingUrl = configOptions.sharingUrl.replace('http:', 'https:');
-    }
-
-    if (configOptions.geometryServiceUrl && location.protocol === 'https:'){
-      configOptions.geometryServiceUrl = configOptions.geometryServiceUrl.replace('http:', 'https:');
-    }
-
-    esri.arcgis.utils.arcgisUrl = configOptions.sharingUrl;
-    esri.config.defaults.io.proxyUrl = configOptions.proxyUrl;
-    esri.config.defaults.geometryServiceUrl = new GeometryService(configOptions.geometryServiceUrl);
-
-    if(_embed){
-      console.log(_embed);
-    }
-
     createAnimalSelectors();
     loadMap(configOptions.zooMap);
     loadInfo();
