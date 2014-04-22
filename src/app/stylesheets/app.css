@@ -820,3 +820,113 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 .embed #header #branding-wrapper {
   display: none;
 }
+
+/* line 42 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-webkit-full-screen .embed #header {
+  height: 120px;
+  min-height: 0;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-webkit-full-screen .embed #header #fullscreen-button {
+  display: none;
+}
+
+/* line 35 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-webkit-full-screen .embed #header #title,
+:-webkit-full-screen .embed #header #subtitle,
+:-webkit-full-screen .embed #header #branding-wrapper {
+  display: block;
+}
+
+/* line 48 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-moz-full-screen .embed #header {
+  height: 120px;
+  min-height: 0;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-moz-full-screen .embed #header #fullscreen-button {
+  display: none;
+}
+
+/* line 35 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-moz-full-screen .embed #header #title,
+:-moz-full-screen .embed #header #subtitle,
+:-moz-full-screen .embed #header #branding-wrapper {
+  display: block;
+}
+
+/* line 54 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-ms-fullscreen .embed #header {
+  height: 120px;
+  min-height: 0;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-ms-fullscreen .embed #header #fullscreen-button {
+  display: none;
+}
+
+/* line 35 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:-ms-fullscreen .embed #header #title,
+:-ms-fullscreen .embed #header #subtitle,
+:-ms-fullscreen .embed #header #branding-wrapper {
+  display: block;
+}
+
+/* line 60 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:full-screen .embed #header {
+  height: 120px;
+  min-height: 0;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:full-screen .embed #header #fullscreen-button {
+  display: none;
+}
+
+/* line 35 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:full-screen .embed #header #title,
+:full-screen .embed #header #subtitle,
+:full-screen .embed #header #branding-wrapper {
+  display: block;
+}
+
+/* line 66 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+
+/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:fullscreen .embed #header {
+  height: 120px;
+  min-height: 0;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:fullscreen .embed #header #fullscreen-button {
+  display: none;
+}
+
+/* line 35 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+:fullscreen .embed #header #title,
+:fullscreen .embed #header #subtitle,
+:fullscreen .embed #header #branding-wrapper {
+  display: block;
+}

@@ -26,10 +26,11 @@ define(['storymaps/utils/Helper',
   _boundaryMap,
   _currentAnimal;
 
-  if(false || _embed){
+  if(true || _embed){
     $('body').addClass('embed');
+
     $('#fullscreen-button').click(function(){
-      window.open(location.href,null,'channelmode=yes,fullscreen=yes');
+      launchFullscreen(document.documentElement);
     });
   }
 
@@ -163,6 +164,18 @@ define(['storymaps/utils/Helper',
       $(this).addClass('active');
       changeAnimal($(this).attr('data-animal'));
     });
+  }
+
+  function launchFullscreen(element) {
+    if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
   }
 
   return {
