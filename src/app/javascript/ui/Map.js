@@ -28,9 +28,20 @@ define(['dojo/Evented',
       },
 
       createMap: function(){
+        var minZoom,maxZoom;
+        if(this.element === 'zoo-map'){
+          minZoom = 14;
+          maxZoom = 18;
+        }
+        else{
+          minZoom = 2;
+          maxZoom = 5;
+        }
         var deferred = arcgisUtils.createMap(this.webmapId,this.element,{
           mapOptions: {
-            sliderPosition: 'top-right'
+            sliderPosition: 'top-left',
+            minZoom: minZoom,
+            maxZoom: maxZoom
           },
           geometryServiceURL: this.geometryServiceURL
         });
