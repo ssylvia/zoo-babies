@@ -3,7 +3,8 @@ define(['storymaps/utils/Helper',
   'storymaps/ui/Map',
   'storymaps/ui/InfoPane',
   'esri/tasks/GeometryService',
-  'dojo/on'],
+  'dojo/on',
+  'lib/bigscreen/bigscreen'],
   function(Helper,
     configOptions,
     Map,
@@ -26,11 +27,16 @@ define(['storymaps/utils/Helper',
   _boundaryMap,
   _currentAnimal;
 
-  if(true || _embed){
+  if(_embed){
     $('body').addClass('embed');
 
     $('#fullscreen-button').click(function(){
-      launchFullscreen(document.documentElement);
+      if (BigScreen.enabled) {
+        BigScreen.toggle();
+      }
+      else {
+        window.open(self.location.href);
+      }
     });
   }
 
@@ -164,18 +170,6 @@ define(['storymaps/utils/Helper',
       $(this).addClass('active');
       changeAnimal($(this).attr('data-animal'));
     });
-  }
-
-  function launchFullscreen(element) {
-    if(element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if(element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-    } else if(element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    } else if(element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-    }
   }
 
   return {

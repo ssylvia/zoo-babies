@@ -23,6 +23,7 @@
     "html5shiv": "~3.7.0",
     "selectivizr-new": "~1.0.3",
     "unslider": "*",
-    "waitForImages": "~1.4.2"
+    "waitForImages": "~1.4.2",
+    "bigscreen": "~2.0.4"
   }
 }

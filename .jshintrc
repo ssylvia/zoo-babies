@@ -97,6 +97,7 @@
         "$": false,
         "top": false,
         "self": false,
-        "esri": false
+        "esri": false,
+        "BigScreen": false
     }
 }
