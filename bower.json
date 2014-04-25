@@ -24,6 +24,7 @@
     "selectivizr-new": "~1.0.3",
     "unslider": "*",
     "waitForImages": "~1.4.2",
-    "bigscreen": "~2.0.4"
+    "bigscreen": "~2.0.4",
+    "swiper": "~2.6.0"
   }
 }

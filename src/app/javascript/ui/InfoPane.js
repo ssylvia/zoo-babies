@@ -4,18 +4,22 @@ define(['dojo/Evented',
   'dojo/on',
   'dojo/_base/array',
   'storymaps/core/Data',
+  'storymaps/utils/Helper',
   'jquery/jquery',
   'lib/unslider/src/unslider',
-  'lib/waitForImages/dist/jquery.waitforimages.min'],
+  'lib/waitForImages/dist/jquery.waitforimages.min',
+  'lib/swiper/dist/idangerous.swiper'],
   function(Evented,
     declare,
     langs,
     on,
     array,
     configOptions,
+    Helper,
     jquery,
     unslider,
-    waitForImages){
+    waitForImages,
+    Swiper){
 
     var InfoPane = declare(Evented,{
 
@@ -23,6 +27,9 @@ define(['dojo/Evented',
       infoPanes: {},
       currentPane: null,
       prevPane: null,
+      swiper: $('.swiper-container').swiper({
+        mode: 'horizontal'
+      }),
 
       constructor: function(options){
 
@@ -51,6 +58,7 @@ define(['dojo/Evented',
           this.prevPane = this.currentPane;
           this.currentPane = createNewPane(this,animal);
         }
+        this.swiper.swipeTo(this.currentPane.slide.index());
       },
 
       checkLoadState: function()
@@ -76,9 +84,11 @@ define(['dojo/Evented',
 
     function createNewPane(self,animal)
     {
-      var elementObj = buildHtml(animal);
+      var slide = buildHtml(self,animal);
+      var elementObj = $('.swiper-slide').eq(slide.index());
       var imageSlider = buildImageGallery(self,elementObj,animal);
       var infoPane = {
+        slide: slide,
         elementObj: elementObj,
         imageSlider: imageSlider
       };
@@ -88,7 +98,7 @@ define(['dojo/Evented',
       return infoPane;
     }
 
-    function buildHtml(animal){
+    function buildHtml(self,animal){
       var dataObj = configOptions.animals[animal];
       var htmlString = '\
         <div class="info-pane ' + dataObj.species + '">\
@@ -106,10 +116,10 @@ define(['dojo/Evented',
           </div>\
         </div>';
 
-      var elementObj = $(htmlString);
-      $('#side-pane').append(elementObj);
+      var newSlide = self.swiper.createSlide(htmlString,'swiper-slide ' + dataObj.species);
+      newSlide.insertAfter(dataObj.slideIndex - 1);
 
-      return elementObj;
+      return newSlide;
     }
 
     function buildImageGallery(self,elementObj,animal)
@@ -148,12 +158,7 @@ define(['dojo/Evented',
         slider.data().unslider.stop();
       }
 
-      var sideWidth = $('#side-pane').width() - 50;
-
-      $('.slider-wrapper, .image-slider, .image-slide').css({
-        'height': sideWidth * (2/3),
-        'width': sideWidth
-      });
+      Helper.resetRegionLayout();
 
       return slider;
     }

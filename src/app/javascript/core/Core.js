@@ -4,13 +4,17 @@ define(['storymaps/utils/Helper',
   'storymaps/ui/InfoPane',
   'esri/tasks/GeometryService',
   'dojo/on',
+  'dojo/has',
+  'dojo/touch',
   'lib/bigscreen/bigscreen'],
   function(Helper,
     configOptions,
     Map,
     InfoPane,
     GeometryService,
-    on){
+    on,
+    has,
+    touch){
 
   /**
    * Core
@@ -27,7 +31,7 @@ define(['storymaps/utils/Helper',
   _boundaryMap,
   _currentAnimal;
 
-  if(_embed){
+  if (_embed){
     $('body').addClass('embed');
 
     $('#fullscreen-button').click(function(){
@@ -38,6 +42,10 @@ define(['storymaps/utils/Helper',
         window.open(self.location.href);
       }
     });
+  }
+
+  if (has(touch)){
+    $('body').addClass('touch');
   }
 
   Helper.enableRegionLayout();
@@ -151,6 +159,8 @@ define(['storymaps/utils/Helper',
     var i = 1;
     for (var obj in configOptions.animals){
       if (configOptions.animals.hasOwnProperty(obj)) {
+
+        configOptions.animals[obj].slideIndex = i - 1;
 
         var htmlString = '\
           <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-animal="' + obj + '">\

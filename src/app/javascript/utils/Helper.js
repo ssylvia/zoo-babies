@@ -48,6 +48,13 @@ define(['dojo/_base/array',
 
 	function regionLayout()
 	{
+    if ($('body').width() < 768){
+      $('#side-pane').removeClass('region-left').addClass('region-center');
+    }
+    else{
+      $('#side-pane').removeClass('region-center').addClass('region-left');
+    }
+
 		$('.region-center').each(function(){
 			var l = $(this).siblings('.region-left:visible').outerWidth(),
 				r = $(this).siblings('.region-right:visible').outerWidth(),
@@ -64,6 +71,10 @@ define(['dojo/_base/array',
 		});
 
     var sideWidth = $('#side-pane').width() - 50;
+
+    if ($('#app-content').width() < 768){
+      sideWidth+=30;
+    }
 
 		$('.slider-wrapper, .image-slider, .image-slide').css({
       'height': sideWidth * (2/3),
