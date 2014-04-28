@@ -23,7 +23,7 @@ define(['dojo/Evented',
 
     var InfoPane = declare(Evented,{
 
-      animal: null,
+      animals: [],
       infoPanes: {},
       currentPane: null,
       prevPane: null,
@@ -35,6 +35,17 @@ define(['dojo/Evented',
 
         declare.safeMixin(this,options);
 
+        for (var obj in configOptions.animals){
+          if (configOptions.animals.hasOwnProperty(obj)) {
+            var animal = {
+              animal: obj,
+              paneLoaded: false
+            };
+
+            this.animals.push(animal);
+          }
+        }
+
       },
 
       changePane: function(animal){
@@ -45,55 +56,41 @@ define(['dojo/Evented',
           this.prevPane = this.currentPane;
           this.currentPane = this.infoPanes[animal];
 
-          if(this.prevPane && this.prevPane.elementObj){
-            this.prevPane.elementObj.removeClass('active');
-          }
-          this.currentPane.elementObj.addClass('active');
           this.currentPane.imageSlider.data().unslider.play();
         }
         else{
-          this.readyState = {
-            images: false
-          };
           this.prevPane = this.currentPane;
           this.currentPane = createNewPane(this,animal);
         }
+        loadAdjInfoPane(this,animal);
         this.swiper.swipeTo(this.currentPane.slide.index());
-      },
-
-      checkLoadState: function()
-      {
-        var ready = true;
-        for (var i in this.readyState){
-          if (!this.readyState[i]){
-            ready = false;
-          }
-        }
-        if (ready){
-          this.emit('loaded',this.currentPane);
-
-          if(this.prevPane && this.prevPane.elementObj){
-            this.prevPane.elementObj.removeClass('active');
-          }
-          this.currentPane.elementObj.addClass('active');
-          this.currentPane.imageSlider.data().unslider.play();
-        }
       }
 
     });
 
     function createNewPane(self,animal)
     {
+      var aryIndex;
+      array.forEach(self.animals,function(obj,i){
+        if (obj.animal === animal){
+          aryIndex = i;
+        }
+      });
       var slide = buildHtml(self,animal);
       var elementObj = $('.swiper-slide').eq(slide.index());
       var imageSlider = buildImageGallery(self,elementObj,animal);
       var infoPane = {
+        arrayIndex: aryIndex,
         slide: slide,
         elementObj: elementObj,
-        imageSlider: imageSlider
+        imageSlider: imageSlider,
+        readyState: {
+          images: false
+        }
       };
 
       self.infoPanes[animal] = infoPane;
+      self.animals[aryIndex].paneLoaded = true;
 
       return infoPane;
     }
@@ -117,7 +114,7 @@ define(['dojo/Evented',
         </div>';
 
       var newSlide = self.swiper.createSlide(htmlString,'swiper-slide ' + dataObj.species);
-      newSlide.insertAfter(dataObj.slideIndex - 1);
+      newSlide.insertAfter(getSlideIndex(self,animal));
 
       return newSlide;
     }
@@ -132,18 +129,19 @@ define(['dojo/Evented',
 
       elementObj.find('.image-slider').waitForImages({
         finished: function(){
-          self.readyState.images = true;
-          self.checkLoadState();
+          self.infoPanes[animal].readyState.images = true;
+          checkLoadState(self,animal);
         },
         waitForAll: true
       });
 
       var slider = elementObj.find('.image-slider').unslider({
-        dots: images.length > 1 ? true : false
+        dots: images.length > 1 ? true : false,
+        delay: 5000
       });
 
       if(images.length > 1){
-        elementObj.find('.slide-nav').show();
+        elementObj.addClass('multiple-images');
         var slidePrev = elementObj.find('.prev-slide');
         var slideNext = elementObj.find('.next-slide');
 
@@ -161,6 +159,57 @@ define(['dojo/Evented',
       Helper.resetRegionLayout();
 
       return slider;
+    }
+
+    function checkLoadState(self,animal)
+    {
+      var ready = true;
+      for (var obj in self.infoPanes[animal].readyState){
+        if (self.infoPanes[animal].readyState.hasOwnProperty(obj) && !self.infoPanes[animal].readyState[obj]) {
+          ready = false;
+        }
+      }
+      if (ready){
+        self.emit('loaded',this.currentPane);
+
+        self.infoPanes[animal].elementObj.addClass('loaded');
+        if (self.infoPanes[animal] === self.currentPane){
+          self.currentPane.imageSlider.data().unslider.play();
+        }
+      }
+    }
+
+    function getSlideIndex(self,animal)
+    {
+      var prevAnimal;
+      var index = 0;
+
+      for (var i = 0; i < self.animals.length; i++){
+        if (self.animals[i].animal === animal){
+          break;
+        }
+        else if (self.animals[i].paneLoaded){
+          prevAnimal = self.animals[i].animal;
+        }
+      }
+
+      if (prevAnimal){
+        index = self.infoPanes[prevAnimal].slide.index();
+      }
+      return index;
+    }
+
+    function loadAdjInfoPane(self,animal)
+    {
+      var aryIndex = self.currentPane.arrayIndex;
+      var next = self.animals[aryIndex + 1];
+      var prev = self.animals[aryIndex - 1];
+      if (next && !next.paneLoaded){
+        createNewPane(self,next.animal);
+      }
+      if (prev && !prev.paneLoaded){
+        createNewPane(self,prev.animal);
+      }
     }
 
     return InfoPane;

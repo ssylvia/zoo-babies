@@ -160,8 +160,6 @@ define(['storymaps/utils/Helper',
     for (var obj in configOptions.animals){
       if (configOptions.animals.hasOwnProperty(obj)) {
 
-        configOptions.animals[obj].slideIndex = i - 1;
-
         var htmlString = '\
           <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-animal="' + obj + '">\
             <div class="selection-arrow"></div>\
