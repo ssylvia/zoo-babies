@@ -28,12 +28,16 @@ define(['dojo/Evented',
       currentPane: null,
       prevPane: null,
       swiper: $('.swiper-container').swiper({
-        mode: 'horizontal'
+        mode: 'horizontal',
+        useCSS3Transforms: true,
+        keyboardControl: true,
       }),
 
       constructor: function(options){
 
         declare.safeMixin(this,options);
+
+        var self = this;
 
         for (var obj in configOptions.animals){
           if (configOptions.animals.hasOwnProperty(obj)) {
@@ -45,6 +49,8 @@ define(['dojo/Evented',
             this.animals.push(animal);
           }
         }
+
+        addSwiperEvents(self);
 
       },
 
@@ -64,9 +70,25 @@ define(['dojo/Evented',
         }
         loadAdjInfoPane(this,animal);
         this.swiper.swipeTo(this.currentPane.slide.index());
+        this.emit('changed',animal);
       }
 
     });
+
+    function addSwiperEvents(self)
+    {
+      var swiper = self.swiper;
+
+      swiper.addCallback('SlideChangeEnd',function(swipe){
+        var animal = swipe.activeSlide().getData('animal');
+
+        self.changePane(animal);
+      });
+
+      swiper.addCallback('SlideChangeStart',function(swipe){
+        self.currentPane.imageSlider.data().unslider.stop();
+      });
+    }
 
     function createNewPane(self,animal)
     {
@@ -114,6 +136,7 @@ define(['dojo/Evented',
         </div>';
 
       var newSlide = self.swiper.createSlide(htmlString,'swiper-slide ' + dataObj.species);
+      newSlide.setData('animal',animal);
       newSlide.insertAfter(getSlideIndex(self,animal));
 
       return newSlide;

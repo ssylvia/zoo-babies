@@ -103,6 +103,10 @@ define(['storymaps/utils/Helper',
       appReady();
     });
 
+    info.on('changed', function(animal){
+      changeAnimal(animal);
+    });
+
     // createFirstPane
     for (var i in configOptions.animals){
       if (configOptions.animals.hasOwnProperty(i)) {
@@ -116,6 +120,7 @@ define(['storymaps/utils/Helper',
   {
     if (_currentAnimal != animal){
       _currentAnimal = animal;
+      selectBulletSelector(animal);
       _infoPane.changePane(animal);
       if (_zooMap){
         _zooMap.selectAnimal(animal);
@@ -123,7 +128,6 @@ define(['storymaps/utils/Helper',
       if (_boundaryMap){
         _boundaryMap.selectAnimal(animal);
       }
-
     }
   }
 
@@ -174,10 +178,14 @@ define(['storymaps/utils/Helper',
     }
 
     $('#animal-selector .selector-wrapper').click(function(){
-      $('#animal-selector .selector-wrapper').removeClass('active');
-      $(this).addClass('active');
       changeAnimal($(this).attr('data-animal'));
     });
+  }
+
+  function selectBulletSelector(animal)
+  {
+    $('#animal-selector .selector-wrapper').removeClass('active');
+    $('#animal-selector .selector-wrapper.' + animal).addClass('active');
   }
 
   return {
