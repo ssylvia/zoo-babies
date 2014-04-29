@@ -123,6 +123,7 @@ define(['dojo/Evented',
           <div class="slider-wrapper">\
             <i class="slide-nav prev-slide icon-left-open"></i>\
             <i class="slide-nav next-slide icon-right-open"></i>\
+            <i class="icon-spin animate-spin"></i>\
             <div class="image-slider">\
               <ul></ul>\
             </div>\

@@ -85,6 +85,10 @@
     .image-slide, .dots{
       display: block;
     }
+
+    .icon-spin{
+      display: none;
+    }
   }
 
   &.loaded.multiple-images{
@@ -103,6 +107,14 @@
   position: relative;
   height: 400px;
   overflow: hidden;
+
+  .icon-spin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    margin: -15px 0 0 -21px;
+  }
 
   .slide-nav{
     display: none;

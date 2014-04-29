@@ -22,6 +22,7 @@ define(['storymaps/utils/Helper',
    */
 
   var _embed = (top != self) ? true : false,
+  _mobile = false,
   _readyState = {
     map: 0,
     infoPane: 0
@@ -46,6 +47,9 @@ define(['storymaps/utils/Helper',
 
   if (has('touch')){
     $('body').addClass('touch');
+    if ($('body').width() < 768){
+      _mobile = true;
+    }
   }
 
   Helper.enableRegionLayout();
@@ -67,6 +71,7 @@ define(['storymaps/utils/Helper',
     createAnimalSelectors();
     loadMap(configOptions.zooMap);
     loadInfo();
+    appReady();
   }
 
   function loadMap(mapOptions)
@@ -139,7 +144,7 @@ define(['storymaps/utils/Helper',
         ready = false;
       }
     }
-    if (ready){
+    if (_mobile || ready){
       addEvents();
       Helper.removeLoadScreen();
     }
