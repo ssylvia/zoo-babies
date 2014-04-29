@@ -147,14 +147,14 @@ define(['storymaps/utils/Helper',
 
   function addEvents()
   {
-    $('.map-toggle-wrapper').click(toggleMaps);
+    $('.map-toggle-wrapper').click(toggleElementClasses);
   }
 
-  function toggleMaps()
+  function toggleElementClasses()
   {
     if (!$(this).hasClass('active')){
       $('.zoo, .boundary').not('#animal-selector').toggleClass('active');
-      $('#animal-selector').toggleClass('zoo boundary');
+      $('#animal-selector, #side-pane').toggleClass('zoo boundary');
     }
   }
 

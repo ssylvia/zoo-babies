@@ -102,6 +102,7 @@
 .slider-wrapper{
   position: relative;
   height: 400px;
+  overflow: hidden;
 
   .slide-nav{
     display: none;
@@ -202,11 +203,36 @@
     &.birthday-text{
       margin-bottom: 15px;
     }
+
+    &.zoo-text-header, &.wild-text-header{
+      display: none;
+    }
+
+    &.zoo-text-header{
+      color: accent1;
+    }
+
+    &.wild-text-header{
+      margin-top: 15px;
+      color: accent2;
+    }
   }
 
   p{
     font-size: 16px;
   }
+
+  .zoo-text, .wild-text{
+    display: none;
+  }
+}
+
+.boundary .birthday-text{
+  display: none;
+}
+
+.zoo .zoo-text, .boundary .wild-text{
+  display: block;
 }
 
 .map-toggle-wrapper{
@@ -299,6 +325,10 @@
 
     .text-content{
       padding: 0 0 50px;
+    }
+
+    .zoo-text-header, .zoo-text, .wild-text-header, .wild-text{
+      display: block !important;
     }
   }
 
