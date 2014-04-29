@@ -200,7 +200,7 @@
   h6{
     font-size: 18px;
 
-    &.birthday-text{
+    &.birthday-text, &.status-text{
       margin-bottom: 15px;
     }
 
@@ -227,7 +227,7 @@
   }
 }
 
-.boundary .birthday-text{
+.zoo .scientific-text, .zoo .status-text, .boundary .birthday-text{
   display: none;
 }
 
@@ -327,8 +327,12 @@
       padding: 0 0 50px;
     }
 
-    .zoo-text-header, .zoo-text, .wild-text-header, .wild-text{
+    .zoo-text-header, .zoo-text, .wild-text-header, .wild-text, .birthday-text, .scientific-text, .status-text{
       display: block !important;
+    }
+
+    .birthday-text{
+      margin-bottom: 0 !important;
     }
   }
 

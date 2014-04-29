@@ -130,6 +130,8 @@ define(['dojo/Evented',
           <div class="text-content">\
             <h3 class="species-text">' + dataObj.species + '</h3>\
             <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\
+            <h6 class="scientific-text"><strong>Scientific Name: </strong>' + dataObj.scientificName + '</h6>\
+            <h6 class="status-text"><strong>Red List Status: </strong>' + dataObj.status + '</h6>\
             <h6 class="zoo-text-header mobile-text-header"><strong>At the Zoo</strong></h6>\
             <p class="zoo-text">' + dataObj.zooText + '</p>\
             <h6 class="wild-text-header mobile-text-header"><strong>In the Wild</strong></h6>\
