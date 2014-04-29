@@ -44,7 +44,7 @@ define(['storymaps/utils/Helper',
     });
   }
 
-  if (has(touch)){
+  if (has('touch')){
     $('body').addClass('touch');
   }
 

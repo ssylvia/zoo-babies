@@ -18,8 +18,7 @@ define(['dojo/Evented',
     Helper,
     jquery,
     unslider,
-    waitForImages,
-    Swiper){
+    waitForImages){
 
     var InfoPane = declare(Evented,{
 
@@ -160,7 +159,7 @@ define(['dojo/Evented',
 
       var slider = elementObj.find('.image-slider').unslider({
         dots: images.length > 1 ? true : false,
-        delay: 5000
+        delay: 8000
       });
 
       if(images.length > 1){
