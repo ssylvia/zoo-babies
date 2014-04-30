@@ -4,14 +4,18 @@ define(['dojo/Evented',
   'dojo/on',
   'dojo/_base/array',
   'esri/arcgis/utils',
-  'esri/tasks/query'],
+  'esri/tasks/query',
+  'storymaps/utils/MultiTips',
+  'storymaps/core/Data'],
   function(Evented,
     declare,
     langs,
     on,
     array,
     arcgisUtils,
-    Query){
+    Query,
+    MultiTip,
+    configOptions){
 
     var Map = declare([Evented],{
 
@@ -62,13 +66,25 @@ define(['dojo/Evented',
 
       selectAnimal: function(animal){
 
-        if (this.element === 'zoo-map'){
+        if (this.animalLayer && this.element === 'zoo-map'){
           var query = new Query();
+          var self = this;
           query.returnGeometry = true;
-          // // query.where =
-          // this.animalLayer.queryFeatures(query,function(results){
-
-          // });
+          query.where = 'Animal = \'' + animal + '\'';
+          console.log(self.map);
+          self.animalLayer.queryFeatures(query,function(results){
+            self.multiTips = new MultiTip({
+              map: self.map,
+              content: configOptions.animals[animal].species,
+              backgroundColor: '#444',
+              borderColor: '#444',
+              pointerColor: '#444',
+              pointArray: results.features,
+              mapAuthorizedWidth: -1,
+              mapAuthorizedHeight: -1,
+              topLeftNotAuthorizedArea: [40, 180]
+            });
+          });
         }
         else if (this.element === 'boundary-map' && this.boundaryLayers[animal]){
           this.boundaryLayers.centroid.setDefinitionExpression('animal NOT LIKE \'' + animal + '\'');

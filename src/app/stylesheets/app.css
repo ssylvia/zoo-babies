@@ -688,9 +688,24 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   z-index: 100;
 }
 
-/* line 11 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+/* line 13 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+.multiTip {
+  min-width: 60px;
+  max-width: 200px;
+  border: 2px #444 solid;
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  -moz-box-shadow: 2px 2px 10px #333;
+  -webkit-box-shadow: 2px 2px 10px #333;
+  box-shadow: 2px 2px 10px #333;
+}
 
-/* line 11 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #side-pane-buffer-top {
