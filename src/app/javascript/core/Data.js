@@ -15,7 +15,7 @@ define([],
       webmapId: '705c481ee1b542199d341ba31eb72f68',
       element: 'zoo-map'
     },
-    proxyUrl: ',
+    proxyUrl: '',
     geometryServiceUrl: 'http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer',
     sharingUrl: 'http://www.arcgis.com/sharing/rest/content/items',
     animals: {
