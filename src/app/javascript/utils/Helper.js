@@ -75,15 +75,16 @@ define(['dojo/_base/array',
     if ($('#app-content').width() < 768){
       sideWidth+=30;
     }
+    else{
+      $('.map-toggle-wrapper').css({
+        'top': (sideWidth * (2/3)) + 60,
+        'left': sideWidth -10
+      });
+    }
 
 		$('.slider-wrapper, .image-slider, .image-slide').css({
       'height': sideWidth * (2/3),
       'width': sideWidth
-    });
-
-    $('.map-toggle-wrapper').css({
-      'top': (sideWidth * (2/3)) + 60,
-      'left': sideWidth -10
     });
 	}
 

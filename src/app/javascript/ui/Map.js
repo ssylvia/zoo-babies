@@ -138,10 +138,15 @@ define(['dojo/Evented',
       },
 
       selectAnimal: function(animal){
+        var self = this,
+          query,
+          defaultSymbol,
+          renderer,
+          symbol,
+          obj;
 
         if (this.animalLayer && this.element === 'zoo-map'){
-          var query = new Query();
-          var self = this;
+          query = new Query();
           self.readyForChange = false;
           query.returnGeometry = true;
           query.where = 'Animal = \'' + animal + '\'';
@@ -170,12 +175,11 @@ define(['dojo/Evented',
 
           });
 
-          var defaultSymbol = new PictureMarkerSymbol('resources/images/mapMarkers/orange/light/anemones.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
-          var renderer = new UniqueValueRenderer(defaultSymbol, 'Animal');
+          defaultSymbol = new PictureMarkerSymbol('resources/images/mapMarkers/orange/light/anemones.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
+          renderer = new UniqueValueRenderer(defaultSymbol, 'Animal');
 
-          for (var obj in configOptions.animals){
+          for (obj in configOptions.animals){
             if (configOptions.animals.hasOwnProperty(obj)) {
-              var symbol;
               if (obj === animal){
                 symbol = new PictureMarkerSymbol('resources/images/mapMarkers/orange/dark/' + obj + '.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
               }
@@ -190,15 +194,61 @@ define(['dojo/Evented',
           this.animalLayer.setRenderer(renderer);
           this.animalLayer.redraw();
         }
-        // else if (this.element === 'boundary-map' && this.boundaryLayers[animal]){
-        //   this.boundaryLayers.centroid.setDefinitionExpression('animal NOT LIKE \'' + animal + '\'');
-        //   if (this.currentLayer){
-        //     this.currentLayer.hide();
-        //   }
-        //   this.currentLayer = this.boundaryLayers[animal];
-        //   this.currentLayer.show();
-        //   this.map.setExtent(this.currentLayer.initialExtent,true);
-        // }
+        else if (this.element === 'boundary-map' && this.boundaryLayers[animal]){
+          var points = self.boundaryLayers.centroid;
+
+          query = new Query();
+          query.returnGeometry = true;
+          query.where = 'Animal = \'' + animal + '\'';
+          query.outFields = '[*]';
+
+          points.queryFeatures(query,function(results){
+
+            self.currentAnimal = results.features[0];
+            positionMap(self.map,results.features[0].geometry);
+
+            on.once(self.map,'extent-change',function(){
+              self.readyForChange = true;
+              self.multiTips = new MultiTip({
+                map: self.map,
+                backgroundColor: '#444',
+                borderColor: '#444',
+                pointerColor: '#444',
+                offsetTop: 73,
+                offsetSide: 3,
+                offsetBottom: 0,
+                pointArray: results.features,
+                mapAuthorizedWidth: -1,
+                mapAuthorizedHeight: -1,
+                topLeftNotAuthorizedArea: [40, 180]
+              });
+            });
+
+          });
+
+          defaultSymbol = new PictureMarkerSymbol('resources/images/mapMarkers/green/light/anemones.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
+          renderer = new UniqueValueRenderer(defaultSymbol, 'animal');
+
+          for (obj in configOptions.animals){
+            if (configOptions.animals.hasOwnProperty(obj)) {
+              if (obj === animal){
+                symbol = new PictureMarkerSymbol('resources/images/mapMarkers/green/dark/' + obj + '.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
+              }
+              else{
+                symbol = new PictureMarkerSymbol('resources/images/mapMarkers/green/light/' + obj + '.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
+              }
+
+              renderer.addValue(obj,symbol);
+            }
+          }
+
+          points.setRenderer(renderer);
+          points.redraw();
+
+          // this.currentLayer = this.boundaryLayers[animal];
+          // this.currentLayer.show();
+          // this.map.setExtent(this.currentLayer.initialExtent,true);
+        }
 
       },
 

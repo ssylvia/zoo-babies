@@ -320,7 +320,62 @@
   color: lighten(accent2, 70%);
 }
 
+@media all and (max-width: 768){
+}
+
 @media all and (max-width: 767){
+
+  .map-toggle-wrapper{
+    z-index: 105;
+
+    &#zoo-toggle-wrapper:hover, &#zoo-toggle-wrapper.active{
+      margin: 0;
+    }
+
+    .map-toggle{
+      text-align: center;
+      width: 110px;
+      height: 60px;
+      border-radius: 0;
+      border: none !important;
+      cursor: pointer;
+    }
+
+    .btn-text{
+      margin-top: 8px !important;
+    }
+
+    p{
+      font-size: 28px !important;
+
+      &.small{
+        font-size: 14px !important;
+      }
+    }
+
+    .selection-arrow{
+      display: none !important;
+    }
+  }
+
+  #zoo-toggle-wrapper{
+    left: 0;
+    bottom: 60px;
+    top: auto;
+
+    .map-toggle{
+      border-top-right-radius: 10px;
+    }
+  }
+
+  #boundary-toggle-wrapper{
+    bottom: 60px;
+    right: 110px;
+
+    .map-toggle{
+      border-top-left-radius: 10px;
+    }
+  }
 
   #animal-selector, #side-pane-buffer-top{
     display: none;
@@ -338,7 +393,7 @@
     padding: 10px;
 
     .text-content{
-      padding: 0 0 50px;
+      padding: 0 0 80px;
     }
 
     .zoo-text-header, .zoo-text, .wild-text-header, .wild-text, .birthday-text, .scientific-text, .status-text{
