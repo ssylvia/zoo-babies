@@ -27,6 +27,7 @@ define(['storymaps/utils/Helper',
     map: 0,
     infoPane: 0
   },
+  _ready = false,
   _infoPane,
   _zooMap,
   _boundaryMap,
@@ -147,7 +148,8 @@ define(['storymaps/utils/Helper',
         ready = false;
       }
     }
-    if (_mobile || ready){
+    if (ready && !_ready){
+      _ready = true;
       addEvents();
       Helper.removeLoadScreen();
     }
@@ -161,8 +163,17 @@ define(['storymaps/utils/Helper',
   function toggleElementClasses()
   {
     if (!$(this).hasClass('active')){
+      $('#content').removeClass('info');
       $('.zoo, .boundary').not('#animal-selector').toggleClass('active');
       $('#animal-selector, #side-pane').toggleClass('zoo wild');
+    }
+    else{
+      if ($('#content').hasClass('info')){
+        $('#content').removeClass('info');
+      }
+      else{
+        $('#content').addClass('info');
+      }
     }
   }
 
