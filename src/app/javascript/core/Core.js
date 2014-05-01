@@ -162,7 +162,7 @@ define(['storymaps/utils/Helper',
   {
     if (!$(this).hasClass('active')){
       $('.zoo, .boundary').not('#animal-selector').toggleClass('active');
-      $('#animal-selector, #side-pane').toggleClass('zoo boundary');
+      $('#animal-selector, #side-pane').toggleClass('zoo wild');
     }
   }
 
@@ -175,7 +175,8 @@ define(['storymaps/utils/Helper',
         var htmlString = '\
           <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-animal="' + obj + '">\
             <div class="selection-arrow"></div>\
-            <div class="selector">' + i + '</div>\
+            <div class="selector zoo" style="background-image: url(resources/images/mapMarkers/orange/dark/' + obj + '.png)"></div>\
+            <div class="selector wild" style="background-image: url(resources/images/mapMarkers/green/dark/' + obj + '.png)"></div>\
           </div>';
 
         $('#animal-selector').append(htmlString);

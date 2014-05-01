@@ -2,7 +2,7 @@
   position: absolute;
   background-color: white;
   width: 30%;
-  height: 35px;
+  height: 45px;
   max-width: 750px;
   min-width: 500px;
   z-index: 4;
@@ -17,9 +17,9 @@
 
 #animal-selector{
   position: absolute;
-  margin-top: -15px;
+  margin-top: -26px;
   left: 15px;
-  z-index: 10;
+  z-index: 102;
 
   .selector-wrapper{
     position: relative;
@@ -43,31 +43,24 @@
 
   .selector{
     position: relative;
-    color: white;
-    height: 30px;
-    width: 30px;
+    color: #fff;
+    height: 43px;
+    width: 43px;
     font-weight: 300;
     line-height: 1.9;
-    border-radius: 17px;
-    cursor: pointer
+    border-radius: 30px;
+    cursor: pointer;
+    background-size: 64px 74px;
+    background-repeat: no-repeat;
+    background-position: -3px -1;
     z-index: 1;
-  }
-
-  &.zoo .selector{
-    background-color: accent1;
-    color: lighten(accent1, 70%);
-  }
-
-  &.boundary .selector{
-    background-color: accent2;
-    color: lighten(accent2, 70%);
   }
 
   .selection-arrow{
     display: none;
     position: absolute;
-    top: 28px;
-    left: 11px;
+    top: 45px;
+    left: 17px;
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
@@ -75,6 +68,10 @@
     border-top: 15px solid selector-highlight;
     z-index:0;
   }
+}
+
+.wild .zoo.selector, .zoo .wild.selector{
+  display: none;
 }
 
 .swiper-slide{
@@ -100,7 +97,7 @@
 
 .info-pane{
   position: relative;
-  padding: 35px 25px 25px 25px;
+  padding: 45px 25px 25px 25px;
 }
 
 .slider-wrapper{
@@ -239,11 +236,11 @@
   }
 }
 
-.zoo .scientific-text, .zoo .status-text, .boundary .birthday-text{
+.zoo .scientific-text, .zoo .status-text, .wild .birthday-text{
   display: none;
 }
 
-.zoo .zoo-text, .boundary .wild-text{
+.zoo .zoo-text, .wild .wild-text{
   display: block;
 }
 

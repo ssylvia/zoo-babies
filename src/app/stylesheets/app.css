@@ -578,7 +578,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 #header {
   background-color: #444;
   width: 100%;
-  height: 120px;
+  height: 130px;
   border: none;
   overflow: hidden;
 }
@@ -712,7 +712,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   position: absolute;
   background-color: #fff;
   width: 30%;
-  height: 35px;
+  height: 45px;
   max-width: 750px;
   min-width: 500px;
   z-index: 4;
@@ -729,9 +729,9 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 /* line 18 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #animal-selector {
   position: absolute;
-  margin-top: -15px;
+  margin-top: -26px;
   left: 15px;
-  z-index: 10;
+  z-index: 102;
 }
 
 /* line 24 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
@@ -764,33 +764,24 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
 #animal-selector .selector {
   position: relative;
   color: #fff;
-  height: 30px;
-  width: 30px;
+  height: 43px;
+  width: 43px;
   font-weight: 300;
   line-height: 1.9;
-  border-radius: 17px;
+  border-radius: 30px;
   cursor: pointer;
+  background-size: 64px 74px;
+  background-repeat: no-repeat;
+  background-position: -3px -1;
   z-index: 1;
 }
 
-/* line 56 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
-#animal-selector.zoo .selector {
-  background-color: #e98d08;
-  color: #fcdeb1;
-}
-
-/* line 61 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
-#animal-selector.boundary .selector {
-  background-color: #5faf00;
-  color: #d1ff9b;
-}
-
-/* line 66 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 59 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #animal-selector .selection-arrow {
   display: none;
   position: absolute;
-  top: 28px;
-  left: 11px;
+  top: 45px;
+  left: 17px;
   width: 0;
   height: 0;
   border-left: 6px solid transparent;
@@ -799,46 +790,52 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   z-index: 0;
 }
 
-/* line 80 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 73 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+.wild .zoo.selector,
+.zoo .wild.selector {
+  display: none;
+}
+
+/* line 77 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .swiper-slide {
   background-color: #fff;
   overflow: auto;
 }
 
-/* line 84 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 81 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
-/* line 85 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 82 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .swiper-slide.loaded .image-slide,
 .swiper-slide.loaded .dots {
   display: block;
 }
 
-/* line 89 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 86 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .swiper-slide.loaded .icon-spin {
   display: none;
 }
 
-/* line 94 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 91 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
-/* line 95 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 92 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .swiper-slide.loaded.multiple-images .slide-nav {
   display: block;
 }
 
-/* line 101 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 98 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .info-pane {
   position: relative;
-  padding: 35px 25px 25px 25px;
+  padding: 45px 25px 25px 25px;
 }
 
-/* line 106 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 103 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper {
   position: relative;
   height: 400px;
   overflow: hidden;
 }
 
-/* line 111 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 108 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .icon-spin {
   position: absolute;
   top: 50%;
@@ -847,7 +844,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   margin: -15px 0 0 -21px;
 }
 
-/* line 119 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 116 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .slide-nav {
   display: none;
   position: absolute;
@@ -860,17 +857,17 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   z-index: 1;
 }
 
-/* line 130 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 127 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .slide-nav.next-slide {
   right: 0;
 }
 
-/* line 134 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 131 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .slide-nav:hover {
   opacity: 0.7;
 }
 
-/* line 139 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 136 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper ul,
 .slider-wrapper ul li {
   padding: 0;
@@ -879,7 +876,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-/* line 146 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 143 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper ul li {
   display: none;
   background-size: cover;
@@ -887,7 +884,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   background-position: center;
 }
 
-/* line 153 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 150 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .dots {
   display: none;
   position: absolute;
@@ -898,7 +895,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   margin: 0;
 }
 
-/* line 163 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 160 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .dots li {
   display: inline-block;
   width: 7px;
@@ -919,23 +916,23 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
 }
 
-/* line 187 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 184 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .dots li.active {
   background: #fff;
   opacity: 0.8;
 }
 
-/* line 192 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 189 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .slider-wrapper .dots li:hover {
   opacity: 0.8;
 }
 
-/* line 198 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 195 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content {
   padding-right: 80px;
 }
 
-/* line 201 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 198 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h3,
 .text-content h6,
 .text-content p {
@@ -943,66 +940,66 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   margin: 0;
 }
 
-/* line 206 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 203 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h3 {
   font-size: 50px;
   line-height: 1.2;
   margin: 0.4em 0;
 }
 
-/* line 212 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 209 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h6 {
   font-size: 18px;
 }
 
-/* line 215 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 212 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h6.birthday-text,
 .text-content h6.status-text {
   margin-bottom: 15px;
 }
 
-/* line 219 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 216 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h6.zoo-text-header,
 .text-content h6.wild-text-header {
   display: none;
 }
 
-/* line 223 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 220 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h6.zoo-text-header {
   color: #e98d08;
 }
 
-/* line 227 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 224 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content h6.wild-text-header {
   margin-top: 15px;
   color: #5faf00;
 }
 
-/* line 233 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 230 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content p {
   font-size: 16px;
 }
 
-/* line 237 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 234 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .text-content .zoo-text,
 .text-content .wild-text {
   display: none;
 }
 
-/* line 242 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 239 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .zoo .scientific-text,
 .zoo .status-text,
-.boundary .birthday-text {
+.wild .birthday-text {
   display: none;
 }
 
-/* line 246 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 243 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .zoo .zoo-text,
-.boundary .wild-text {
+.wild .wild-text {
   display: block;
 }
 
-/* line 250 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 247 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper,
 #zoo-toggle-wrapper .map-toggle,
 #boundary-toggle-wrapper .map-toggle {
@@ -1010,7 +1007,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   z-index: 101;
 }
 
-/* line 254 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 251 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper .map-toggle,
 #zoo-toggle-wrapper .map-toggle .map-toggle,
 #boundary-toggle-wrapper .map-toggle .map-toggle {
@@ -1021,14 +1018,14 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
-/* line 262 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 259 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper .btn-text,
 #zoo-toggle-wrapper .map-toggle .btn-text,
 #boundary-toggle-wrapper .map-toggle .btn-text {
   margin-top: 30px;
 }
 
-/* line 266 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 263 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper p,
 #zoo-toggle-wrapper .map-toggle p,
 #boundary-toggle-wrapper .map-toggle p {
@@ -1038,7 +1035,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   font-weight: 600;
 }
 
-/* line 272 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 269 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper p.small,
 #zoo-toggle-wrapper .map-toggle p.small,
 #boundary-toggle-wrapper .map-toggle p.small {
@@ -1046,7 +1043,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   font-size: 18px;
 }
 
-/* line 278 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 275 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper#zoo-toggle-wrapper:hover,
 #zoo-toggle-wrapper .map-toggle#zoo-toggle-wrapper:hover,
 #boundary-toggle-wrapper .map-toggle#zoo-toggle-wrapper:hover,
@@ -1056,14 +1053,14 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   margin: -3px 0 0 -3px;
 }
 
-/* line 282 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 279 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper#boundary-toggle-wrapper,
 #zoo-toggle-wrapper .map-toggle#boundary-toggle-wrapper,
 #boundary-toggle-wrapper .map-toggle#boundary-toggle-wrapper {
   margin-top: 140px;
 }
 
-/* line 285 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 282 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper#boundary-toggle-wrapper:hover,
 #zoo-toggle-wrapper .map-toggle#boundary-toggle-wrapper:hover,
 #boundary-toggle-wrapper .map-toggle#boundary-toggle-wrapper:hover,
@@ -1073,7 +1070,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   margin: 137px 0 0 -3px;
 }
 
-/* line 290 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 287 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper:hover .map-toggle,
 #zoo-toggle-wrapper .map-toggle:hover .map-toggle,
 #boundary-toggle-wrapper .map-toggle:hover .map-toggle,
@@ -1084,7 +1081,7 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   border: 3px solid #999;
 }
 
-/* line 295 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 292 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper .selection-arrow,
 #zoo-toggle-wrapper .map-toggle .selection-arrow,
 #boundary-toggle-wrapper .map-toggle .selection-arrow {
@@ -1099,33 +1096,33 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   border-left: 50px solid #999;
 }
 
-/* line 307 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 304 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 .map-toggle-wrapper.active .selection-arrow,
 #zoo-toggle-wrapper .map-toggle.active .selection-arrow,
 #boundary-toggle-wrapper .map-toggle.active .selection-arrow {
   display: block;
 }
 
-/* line 312 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 309 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #zoo-toggle-wrapper .map-toggle {
   background-color: #e98d08;
   color: #fcdeb1;
 }
 
-/* line 319 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 316 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #boundary-toggle-wrapper .map-toggle {
   background-color: #5faf00;
   color: #d1ff9b;
 }
 @media all and (max-width: 767) {
 
-/* line 328 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 325 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   #animal-selector,
   #side-pane-buffer-top {
     display: none;
   }
 
-/* line 332 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 329 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   #side-pane {
     background-color: #fff;
     width: 100%;
@@ -1134,17 +1131,17 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
     z-index: 105;
   }
 
-/* line 340 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 337 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .info-pane {
     padding: 10px;
   }
 
-/* line 343 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 340 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .info-pane .text-content {
     padding: 0 0 50px;
   }
 
-/* line 347 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 344 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .info-pane .zoo-text-header,
   .info-pane .zoo-text,
   .info-pane .wild-text-header,
@@ -1155,32 +1152,32 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
     display: block !important;
   }
 
-/* line 351 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 348 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .info-pane .birthday-text {
     margin-bottom: 0 !important;
   }
 
-/* line 356 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 353 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
-/* line 357 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 354 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .slider-wrapper .slide-nav {
     opacity: 0.5;
   }
 
-/* line 360 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 357 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .slider-wrapper .slide-nav.next-slide {
     right: -15px;
   }
 
-/* line 364 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 361 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
   .slider-wrapper .slide-nav.prev-slide {
     left: -15px;
   }
 }
 
-/* line 369 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 366 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
-/* line 369 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
+/* line 366 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/embed.styl */
 #fullscreen-button {

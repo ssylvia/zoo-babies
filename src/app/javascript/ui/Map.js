@@ -58,7 +58,7 @@ define(['dojo/Evented',
         }
         var deferred = arcgisUtils.createMap(this.webmapId,this.element,{
           mapOptions: {
-            sliderPosition: 'top-left',
+            sliderPosition: 'top-right',
             minZoom: minZoom,
             maxZoom: maxZoom
           },
@@ -149,7 +149,7 @@ define(['dojo/Evented',
           self.animalLayer.queryFeatures(query,function(results){
 
             self.currentAnimal = results.features[0];
-            positionMap(self.map,results.features[0]);
+            positionMap(self.map,results.features[0].geometry);
 
             on.once(self.map,'extent-change',function(){
               self.readyForChange = true;
@@ -228,8 +228,8 @@ define(['dojo/Evented',
       window.animalLayer = self.animalLayer;
     }
 
-    function positionMap(map,graphic){
-      map.centerAt(graphic.geometry);
+    function positionMap(map,pt){
+      map.centerAt(pt);
     }
 
     return Map;
