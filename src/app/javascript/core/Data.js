@@ -44,7 +44,7 @@ define([],
         'images': ['https://farm3.staticflickr.com/2175/13083134063_a770c99038_z.jpg','https://farm8.staticflickr.com/7415/13083376534_5bf5f0facf_z.jpg','https://farm8.staticflickr.com/7392/13083311244_8b85928f6b_z.jpg']
       },
       'kingFisher': {
-        'species': 'Micronesian King Fisher',
+        'species': 'Micronesian Kingfisher',
         'birthday': 'Jan 1, 2014',
         'status': 'Extinct in the Wild',
         'zooText': 'Though <a href="http://www.smithsonianmag.com/ist/?next=/smithsonian-institution/rare-micronesian-kingfishers-successfully-hatched-78855594/" target="_blank">incredibly hard to breed</a>, the first Micronesian kingfisher chick hatched at the National Zoo in 1998. In January, the zoo received their <a href="http://newsdesk.si.edu/releases/micronesian-kingfisher-chick-hatches-national-zoo-s-conservation-biology-institute" target="_blank">latest addition</a> to the kingfisher flock: a chick of unknown sex, born to an 8-year-old male and 2 year-old female. Officially extinct in the wild, only 129 kingfishers remain in captivity. Visitors can see the rare kingfishers at the zoo’s <a href="http://nationalzoo.si.edu/Animals/Birds/Exhibit/" target="_blank">Bird House</a>.',
