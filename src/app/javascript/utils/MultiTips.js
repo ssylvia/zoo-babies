@@ -5,7 +5,8 @@ define(['dojo/dom-style',
 		'dojo/_base/array',
 		'dojo/query',
 		'dojo/dom',
-		'dojo/has'],
+		'dojo/has',
+    'storymaps/core/Data'],
 	function(
 		domStyle,
 		domConstruct,
@@ -14,7 +15,8 @@ define(['dojo/dom-style',
 		array,
 		query,
 		dom,
-		has
+		has,
+    configOptions
 	) {
 		/**
 		 * Multi tips
@@ -134,7 +136,7 @@ define(['dojo/dom-style',
 
 				array.forEach(settings.pointArray, function(pt, i) {
 					domConstruct.place('<div id="arrow'+i+'" class="mtArrow"></div><div id="multiTip'+i+'" class="multiTip"></div>', mapDiv, 'last');
-					query('#multiTip'+i)[0].innerHTML = settings.content;
+					query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.Animal].species;
 
 					domStyle.set('multiTip' + i, {
 						backgroundColor: settings.backgroundColor,

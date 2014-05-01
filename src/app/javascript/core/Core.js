@@ -96,6 +96,9 @@ define(['storymaps/utils/Helper',
     else{
       _boundaryMap = map;
     }
+    map.on('select',function(animal){
+      changeAnimal(animal);
+    });
   }
 
   function loadInfo()
