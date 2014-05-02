@@ -1,8 +1,12 @@
 define(['dojo/_base/array',
+  'dojo/has',
+  'dojo/touch',
 	'lib/spin.js/spin',
   'jquery/jquery',
   'storymaps/utils/SocialSharing'],
 	function(array,
+    has,
+    touch,
     Spinner,
     Jquery){
 	/**
@@ -75,10 +79,15 @@ define(['dojo/_base/array',
     if ($('#app-content').width() < 768){
       sideWidth+=30;
 
-    $('#mobile-entrance img').css({
-      'width': sideWidth
-
-    });
+      $('#mobile-entrance img').css({
+        'width': sideWidth
+      });
+    }
+    else if (has('touch')){
+      $('.map-toggle-wrapper').css({
+        'top': (sideWidth * (2/3)) + 60,
+        'left': sideWidth + 10
+      });
     }
     else{
       $('.map-toggle-wrapper').css({
