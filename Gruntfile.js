@@ -130,8 +130,8 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
-          compress: false,
-          linenos: true,
+          compress: true,
+          linenos: false,
           paths: ['src/app/stylesheets','src/bower_components/','src/resources/fonts/'],
           use: [
             require('nib')
