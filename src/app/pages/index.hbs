@@ -3,7 +3,13 @@ layout: default
 ---
 <div id="header" class="region-top">
 
-  <h1 id="title" class="region-left"><span class="accent1">Zoo</span><span class="accent2">Babies</span></h1>
+  <h1 id="title" class="region-left">
+    <span class="accent1">Zoo</span><span class="accent2">Babies</span>
+    <span class="mobile-social">
+      <span class="icon-facebook social-share social-text"></span>
+      <span class="icon-twitter social-share social-text"></span>
+    </span>
+  </h1>
   <h2 id="subtitle" class="region-center">{{config.subtitle}}</h2>
   <div id="branding-wrapper" class="region-right">
     <div id="social">
@@ -24,6 +30,12 @@ layout: default
 </div>
 
 <div id="content" class="region-center info">
+
+  <div id="mobile-entrance" class="region-center">
+    <img src="https://farm8.staticflickr.com/7044/13542517163_093699727e_z.jpg" alt="Baby Panda">
+    <div id="entrance-text">{{config.subtitle}}</div>
+    <p class="btn primary">Explore Now</p>
+  </div>
 
   <div id="animal-selector" class="zoo"></div>
 

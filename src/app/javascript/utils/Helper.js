@@ -74,6 +74,11 @@ define(['dojo/_base/array',
 
     if ($('#app-content').width() < 768){
       sideWidth+=30;
+
+    $('#mobile-entrance img').css({
+      'width': sideWidth
+
+    });
     }
     else{
       $('.map-toggle-wrapper').css({
@@ -82,7 +87,7 @@ define(['dojo/_base/array',
       });
     }
 
-		$('.slider-wrapper, .image-slider, .image-slide').css({
+    $('.slider-wrapper, .image-slider, .image-slide').css({
       'height': sideWidth * (2/3),
       'width': sideWidth
     });

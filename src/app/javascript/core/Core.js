@@ -6,6 +6,7 @@ define(['storymaps/utils/Helper',
   'dojo/on',
   'dojo/has',
   'dojo/touch',
+  'lib/waitForImages/dist/jquery.waitforimages.min',
   'lib/bigscreen/bigscreen'],
   function(Helper,
     configOptions,
@@ -14,7 +15,8 @@ define(['storymaps/utils/Helper',
     GeometryService,
     on,
     has,
-    touch){
+    touch,
+    waitForImages){
 
   /**
    * Core
@@ -50,10 +52,23 @@ define(['storymaps/utils/Helper',
     $('body').addClass('touch');
     if ($('body').width() < 768){
       _mobile = true;
+
+      $('#mobile-entrance .btn').click(function(){
+        $('#mobile-entrance').hide();
+      });
     }
   }
 
   Helper.enableRegionLayout();
+
+  if (_mobile){
+    $('#mobile-entrance').find('img').waitForImages({
+      finished: function(){
+        Helper.removeLoadScreen();
+      },
+      waitForAll: true
+    });
+  }
 
   if (configOptions.sharingUrl && location.protocol === 'https:'){
     configOptions.sharingUrl = configOptions.sharingUrl.replace('http:', 'https:');

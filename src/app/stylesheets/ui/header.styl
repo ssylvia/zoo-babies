@@ -56,6 +56,10 @@
   }
 }
 
+#mobile-entrance, .mobile-social{
+  display: none;
+}
+
 @media all and (max-width: 767){
 
   #header{
@@ -71,10 +75,37 @@
     .accent2{
       margin-left: -8px;
     }
+
+    .mobile-social{
+      display: block;
+      color: white;
+      position: fixed;
+      right: 10px;
+      top: 5px;
+    }
   }
 
   #subtitle, #branding-wrapper{
     display: none;
+  }
+
+  #mobile-entrance{
+    display: block;
+    background-color: white;
+    overflow: auto;
+    text-align: center;
+    z-index: 106;
+
+    #entrance-text{
+      padding: 10px;
+      font-size: 16px;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    img{
+      margin-top: 10px;
+    }
   }
 
 }

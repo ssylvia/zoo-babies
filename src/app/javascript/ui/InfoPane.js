@@ -2,6 +2,8 @@ define(['dojo/Evented',
   'dojo/_base/declare',
   'dojo/_base/lang',
   'dojo/on',
+  'dojo/has',
+  'dojo/touch',
   'dojo/_base/array',
   'storymaps/core/Data',
   'storymaps/utils/Helper',
@@ -13,6 +15,8 @@ define(['dojo/Evented',
     declare,
     langs,
     on,
+    has,
+    touch,
     array,
     configOptions,
     Helper,
@@ -31,6 +35,7 @@ define(['dojo/Evented',
         useCSS3Transforms: true,
         keyboardControl: true,
       }),
+      firstSlide: true,
 
       constructor: function(options){
 
@@ -138,6 +143,32 @@ define(['dojo/Evented',
             <p class="wild-text">' + dataObj.wildText + '</p>\
           </div>\
         </div>';
+
+      if (self.firstSlide && has('touch')){
+        self.firstSlide = false;
+
+        htmlString = '\
+          <div class="info-pane ' + dataObj.species + '">\
+            <div class="slider-wrapper">\
+              <i class="slide-nav prev-slide icon-left-open"></i>\
+              <i class="slide-nav next-slide icon-right-open"></i>\
+              <i class="icon-spin animate-spin"></i>\
+              <div class="image-slider">\
+                <ul></ul>\
+              </div>\
+            </div>\
+            <div class="text-content">\
+              <h3 class="species-text">' + dataObj.species + '</h3>\
+              <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\
+              <h6 class="status-text"><strong>Red List Status: </strong>' + dataObj.status + '</h6>\
+              <h6 class="zoo-text-header mobile-text-header"><strong>At the Zoo</strong></h6>\
+              <p class="zoo-text">' + dataObj.zooText + '</p>\
+              <h6 class="wild-text-header mobile-text-header"><strong>In the Wild</strong></h6>\
+              <p class="wild-text">' + dataObj.wildText + '</p>\
+              <h6 class="mobile-instructions"><em>Swipe left to see more zoo babies.</em></h6>\
+            </div>\
+          </div>';
+      }
 
       var newSlide = self.swiper.createSlide(htmlString,'swiper-slide ' + dataObj.species);
       newSlide.setData('animal',animal);
