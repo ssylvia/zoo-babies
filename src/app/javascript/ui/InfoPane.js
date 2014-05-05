@@ -158,7 +158,7 @@ define(['dojo/Evented',
                 <ul></ul>\
               </div>\
             </div>\
-            <p class="photo-credit">Photos courteous of Smithsonian\'s National Zoological Park</p>\
+            <p class="photo-credit"></p>\
             <div class="text-content">\
               <h3 class="species-text">' + dataObj.species + '</h3>\
               <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\
@@ -182,9 +182,14 @@ define(['dojo/Evented',
     function buildImageGallery(self,elementObj,animal)
     {
       var images = configOptions.animals[animal].images;
+      var credits = [];
 
-      array.forEach(images,function(img){
+      array.forEach(images,function(img,i){
         elementObj.find('.image-slider ul').append('<li class="image-slide" style="background-image: url(' + img.url + ');"></li>');
+        credits.push(img.credit);
+        if (i === 0){
+          elementObj.find('.photo-credit').html('Photo by: ' + img.credit);
+        }
       });
 
       elementObj.find('.image-slider').waitForImages({
@@ -197,7 +202,11 @@ define(['dojo/Evented',
 
       var slider = elementObj.find('.image-slider').unslider({
         dots: images.length > 1 ? true : false,
-        delay: 8000
+        delay: 8000,
+        complete: function(){
+          var currentIndex = slider.data().unslider.i;
+          elementObj.find('.photo-credit').html('Photo by: ' + credits[currentIndex]);
+        }
       });
 
       if(images.length > 1){
