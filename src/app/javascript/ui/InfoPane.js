@@ -184,7 +184,7 @@ define(['dojo/Evented',
       var images = configOptions.animals[animal].images;
 
       array.forEach(images,function(img){
-        elementObj.find('.image-slider ul').append('<li class="image-slide" style="background-image: url(' + img + ');"></li>');
+        elementObj.find('.image-slider ul').append('<li class="image-slide" style="background-image: url(' + img.url + ');"></li>');
       });
 
       elementObj.find('.image-slider').waitForImages({
