@@ -190,6 +190,8 @@ define(['storymaps/utils/Helper',
         $('#content').addClass('info');
       }
     }
+    _zooMap.toggleMaps();
+    _boundaryMap.toggleMaps();
   }
 
   function createAnimalSelectors()

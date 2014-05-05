@@ -81,18 +81,28 @@ define(['dojo/Evented',
       },
 
       addLayerEvents: function(self){
+        var layer;
+        var attr;
         if (self.animalLayer && self.element === 'zoo-map'){
+          layer = self.animalLayer;
+          attr = 'Animal';
+        }
+        else if (self.boundaryLayers && self.boundaryLayers.centroid && self.element === 'boundary-map'){
+          layer = self.boundaryLayers.centroid;
+          attr = 'animal';
+        }
 
-          on(self.animalLayer,'click',function(event){
+        if(layer){
+          on(layer,'click',function(event){
             if (self.readyForChange){
-              self.emit('select',event.graphic.attributes.Animal);
+              self.emit('select',event.graphic.attributes[attr]);
             }
           });
 
-          on(self.animalLayer,'mouse-over',function(event){
+          on(layer,'mouse-over',function(event){
             if (self.readyForChange){
               self.map.setCursor('pointer');
-              if (!has('touch') && event.graphic.attributes.Animal != self.currentAnimal.attributes.Animal){
+              if (!has('touch') && event.graphic.attributes[attr] != self.currentAnimal.attributes[attr]){
                 self.multiTips = new MultiTip({
                   map: self.map,
                   backgroundColor: '#444',
@@ -111,10 +121,10 @@ define(['dojo/Evented',
             }
           });
 
-          on(self.animalLayer,'mouse-out',function(event){
+          on(layer,'mouse-out',function(event){
             if (self.readyForChange){
               self.map.setCursor('default');
-              if (!has('touch') && event.graphic.attributes.Animal != self.currentAnimal.attributes.Animal){
+              if (!has('touch') && event.graphic.attributes[attr] != self.currentAnimal.attributes[attr]){
                 self.multiTips = new MultiTip({
                   map: self.map,
                   backgroundColor: '#444',
@@ -145,7 +155,7 @@ define(['dojo/Evented',
           symbol,
           obj;
 
-        if (this.animalLayer && this.element === 'zoo-map'){
+        if (self.animalLayer && self.element === 'zoo-map'){
           query = new Query();
           self.readyForChange = false;
           query.returnGeometry = true;
@@ -154,24 +164,26 @@ define(['dojo/Evented',
           self.animalLayer.queryFeatures(query,function(results){
 
             self.currentAnimal = results.features[0];
-            positionMap(self.map,results.features[0].geometry);
+            // positionMap(self.map,results.features[0].geometry);
 
-            on.once(self.map,'extent-change',function(){
+            // on.once(self.map,'extent-change',function(){
               self.readyForChange = true;
-              self.multiTips = new MultiTip({
-                map: self.map,
-                backgroundColor: '#444',
-                borderColor: '#444',
-                pointerColor: '#444',
-                offsetTop: 73,
-                offsetSide: 3,
-                offsetBottom: 0,
-                pointArray: results.features,
-                mapAuthorizedWidth: -1,
-                mapAuthorizedHeight: -1,
-                topLeftNotAuthorizedArea: [40, 180]
-              });
-            });
+              if ($('#zoo-map').hasClass('active')){
+                self.multiTips = new MultiTip({
+                  map: self.map,
+                  backgroundColor: '#444',
+                  borderColor: '#444',
+                  pointerColor: '#444',
+                  offsetTop: 73,
+                  offsetSide: 3,
+                  offsetBottom: 0,
+                  pointArray: results.features,
+                  mapAuthorizedWidth: -1,
+                  mapAuthorizedHeight: -1,
+                  topLeftNotAuthorizedArea: [40, 180]
+                });
+              }
+            // });
 
           });
 
@@ -191,10 +203,10 @@ define(['dojo/Evented',
             }
           }
 
-          this.animalLayer.setRenderer(renderer);
-          this.animalLayer.redraw();
+          self.animalLayer.setRenderer(renderer);
+          self.animalLayer.redraw();
         }
-        else if (this.element === 'boundary-map' && this.boundaryLayers[animal]){
+        else if (self.element === 'boundary-map' && self.boundaryLayers){
           var points = self.boundaryLayers.centroid;
 
           query = new Query();
@@ -205,23 +217,24 @@ define(['dojo/Evented',
           points.queryFeatures(query,function(results){
 
             self.currentAnimal = results.features[0];
-            positionMap(self.map,results.features[0].geometry);
 
             on.once(self.map,'extent-change',function(){
               self.readyForChange = true;
-              self.multiTips = new MultiTip({
-                map: self.map,
-                backgroundColor: '#444',
-                borderColor: '#444',
-                pointerColor: '#444',
-                offsetTop: 73,
-                offsetSide: 3,
-                offsetBottom: 0,
-                pointArray: results.features,
-                mapAuthorizedWidth: -1,
-                mapAuthorizedHeight: -1,
-                topLeftNotAuthorizedArea: [40, 180]
-              });
+              if ($('#boundary-map').hasClass('active')){
+                self.multiTips = new MultiTip({
+                  map: self.map,
+                  backgroundColor: '#444',
+                  borderColor: '#444',
+                  pointerColor: '#444',
+                  offsetTop: 73,
+                  offsetSide: 3,
+                  offsetBottom: 0,
+                  pointArray: results.features,
+                  mapAuthorizedWidth: -1,
+                  mapAuthorizedHeight: -1,
+                  topLeftNotAuthorizedArea: [40, 180]
+                });
+              }
             });
 
           });
@@ -245,11 +258,47 @@ define(['dojo/Evented',
           points.setRenderer(renderer);
           points.redraw();
 
+          var noHabitat = true;
+          for (var lyr in self.boundaryLayers){
+            if (self.boundaryLayers.hasOwnProperty(lyr)) {
+              if (lyr === animal){
+                noHabitat = false;
+                self.map.setExtent(self.boundaryLayers[lyr].initialExtent,true);
+                self.boundaryLayers[lyr].show();
+              }
+              else if (lyr != 'centroid'){
+                self.boundaryLayers[lyr].hide();
+              }
+            }
+          }
+          if (noHabitat){
+            positionMap(self.map,self.currentAnimal.geometry);
+          }
+
           // this.currentLayer = this.boundaryLayers[animal];
           // this.currentLayer.show();
           // this.map.setExtent(this.currentLayer.initialExtent,true);
         }
 
+      },
+
+      toggleMaps: function(){
+        var self = this;
+        if($('#' + self.map.container.id).hasClass('active')){
+          self.multiTips = new MultiTip({
+            map: self.map,
+            backgroundColor: '#444',
+            borderColor: '#444',
+            pointerColor: '#444',
+            offsetTop: 73,
+            offsetSide: 3,
+            offsetBottom: 0,
+            pointArray: [self.currentAnimal],
+            mapAuthorizedWidth: -1,
+            mapAuthorizedHeight: -1,
+            topLeftNotAuthorizedArea: [40, 180]
+          });
+        }
       },
 
       onMapReady: function(){

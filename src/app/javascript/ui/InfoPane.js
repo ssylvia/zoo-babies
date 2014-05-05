@@ -133,6 +133,7 @@ define(['dojo/Evented',
               <ul></ul>\
             </div>\
           </div>\
+          <p class="photo-credit">Photos courteous of Smithsonian\'s National Zoological Park</p>\
           <div class="text-content">\
             <h3 class="species-text">' + dataObj.species + '</h3>\
             <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\
@@ -157,6 +158,7 @@ define(['dojo/Evented',
                 <ul></ul>\
               </div>\
             </div>\
+            <p class="photo-credit">Photos courteous of Smithsonian\'s National Zoological Park</p>\
             <div class="text-content">\
               <h3 class="species-text">' + dataObj.species + '</h3>\
               <h6 class="birthday-text"><strong>Birthday: </strong>' + dataObj.birthday + '</h6>\

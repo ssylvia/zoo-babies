@@ -136,7 +136,12 @@ define(['dojo/dom-style',
 
 				array.forEach(settings.pointArray, function(pt, i) {
 					domConstruct.place('<div id="arrow'+i+'" class="mtArrow"></div><div id="multiTip'+i+'" class="multiTip"></div>', mapDiv, 'last');
-					query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.Animal].species;
+          if (pt.attributes.animal){
+					 query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species;
+          }
+          else{
+            query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.Animal].species;
+          }
 
 					domStyle.set('multiTip' + i, {
 						backgroundColor: settings.backgroundColor,
