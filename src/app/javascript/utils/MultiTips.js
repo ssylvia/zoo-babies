@@ -137,7 +137,12 @@ define(['dojo/dom-style',
 				array.forEach(settings.pointArray, function(pt, i) {
 					domConstruct.place('<div id="arrow'+i+'" class="mtArrow"></div><div id="multiTip'+i+'" class="multiTip"></div>', mapDiv, 'last');
           if (pt.attributes.animal){
-					 query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species;
+            if (pt.attributes.animal === 'kingFisher' || pt.attributes.animal === 'anemones'){
+              query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species + '<br><strong>Exact habitat unknown.</strong>';
+            }
+            else{
+              query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species;
+            }
           }
           else{
             query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.Animal].species;
