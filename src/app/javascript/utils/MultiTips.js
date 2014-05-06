@@ -137,15 +137,18 @@ define(['dojo/dom-style',
 				array.forEach(settings.pointArray, function(pt, i) {
 					domConstruct.place('<div id="arrow'+i+'" class="mtArrow"></div><div id="multiTip'+i+'" class="multiTip"></div>', mapDiv, 'last');
           if (pt.attributes.animal){
-            if (pt.attributes.animal === 'kingFisher' || pt.attributes.animal === 'anemones'){
-              query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species + '<br><strong>Exact habitat unknown.</strong>';
+            if (pt.attributes.animal === 'kingFisher'){
+              query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong><hr><span class="habitat-description">Historically covering much of the island of Guam, they are no longer found in the wild.</span>';
+            }
+            else if (pt.attributes.animal === 'anemones'){
+              query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong><hr><span class="habitat-description">Red Sea Anemone habitat vary widely throughout the tidal zones of the  North Atlantic, North Sea, and Baltic regions.</span>';
             }
             else{
-              query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.animal].species;
+              query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong>';
             }
           }
           else{
-            query('#multiTip'+i)[0].innerHTML = configOptions.animals[pt.attributes.Animal].species;
+            query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.Animal].species + '</strong>';
           }
 
 					domStyle.set('multiTip' + i, {

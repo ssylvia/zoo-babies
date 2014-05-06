@@ -739,17 +739,31 @@ body:not(.touch) ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: 2px 2px 10px #333;
   box-shadow: 2px 2px 10px #333;
 }
+
+/* line 26 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+.multiTip hr {
+  margin: 5px 0;
+  border-top: 1px solid #999;
+}
+
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+.multiTip .habitat-description {
+  text-align: left;
+  float: left;
+  line-height: 1.2;
+  color: #ccc;
+}
 @media all and (max-width: 767) {
 
-/* line 28 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+/* line 40 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
   .esriControlsBR {
     display: none;
   }
 }
 
-/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+/* line 43 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
 
-/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 43 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #side-pane-buffer-top {
