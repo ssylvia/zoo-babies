@@ -6,7 +6,8 @@ define(['dojo/dom-style',
 		'dojo/query',
 		'dojo/dom',
 		'dojo/has',
-    'storymaps/core/Data'],
+    'storymaps/core/Data',
+    'dojo/_base/sniff'],
 	function(
 		domStyle,
 		domConstruct,
@@ -325,9 +326,14 @@ define(['dojo/dom-style',
 
 			function labelDown(scrPt, i, settings, width)
 			{
+        var ieX = 0;
+        if (has('ie') > 9){
+          ieX = 5;
+        }
+
 				domStyle.set('multiTip' + i, {
 					top: (scrPt.y + 10 + settings.offsetBottom) + 'px',
-					left: (scrPt.x - (width/2) - 5) + 'px'
+					left: (scrPt.x - (width/2) - 5) + ieX + 'px'
 				});
 
 				domStyle.set('arrow' + i, {
@@ -343,9 +349,15 @@ define(['dojo/dom-style',
 
 			function labelUp(scrPt, i, settings, width, height)
 			{
+        var ieX = 0;
+        var ieY = 0;
+        if (has('ie') > 9){
+          ieX = 5;
+          ieY = 14;
+        }
 				domStyle.set('multiTip' + i, {
-					top: (scrPt.y - height - 24 - settings.offsetTop) + 'px',
-					left: (scrPt.x - (width/2) - 5) + 'px'
+					top: (scrPt.y - height - 24 - settings.offsetTop) + ieY + 'px',
+					left: (scrPt.x - (width/2) - 5) + ieX + 'px'
 				});
 
 				domStyle.set('arrow' + i, {
@@ -361,8 +373,12 @@ define(['dojo/dom-style',
 
 			function labelRight(scrPt, i, settings, width, height)
 			{
+        var ieY = 0;
+        if (has('ie') > 9){
+          ieY = 8;
+        }
 				domStyle.set('multiTip' + i, {
-					top: (scrPt.y - 12 - ((height-10) / 2)) + 'px',
+					top: (scrPt.y - 12 - ((height-10) / 2)) + ieY + 'px',
 					left: (scrPt.x + 10 + settings.offsetSide) + 'px'
 				});
 
@@ -379,9 +395,15 @@ define(['dojo/dom-style',
 
 			function labelLeft(scrPt, i, settings, width, height)
 			{
+        var ieX = 0;
+        var ieY = 0;
+        if (has('ie') > 9){
+          ieX = 14;
+          ieY = 7;
+        }
 				domStyle.set('multiTip' + i, {
-					top: (scrPt.y - 12 - ((height-10) / 2)) + 'px',
-					left: (scrPt.x - 24 - width - settings.offsetSide) + 'px'
+					top: (scrPt.y - 12 - ((height-10) / 2)) + ieY + 'px',
+					left: (scrPt.x - 24 - width - settings.offsetSide) + ieX + 'px'
 				});
 
 				domStyle.set('arrow' + i, {

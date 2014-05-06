@@ -10,7 +10,8 @@ define(['dojo/Evented',
   'jquery/jquery',
   'lib/unslider/src/unslider',
   'lib/waitForImages/dist/jquery.waitforimages.min',
-  'lib/swiper/dist/idangerous.swiper'],
+  'lib/swiper/dist/idangerous.swiper',
+  'dojo/_base/sniff'],
   function(Evented,
     declare,
     langs,
@@ -174,7 +175,12 @@ define(['dojo/Evented',
 
       var newSlide = self.swiper.createSlide(htmlString,'swiper-slide ' + dataObj.species);
       newSlide.setData('animal',animal);
-      newSlide.insertAfter(getSlideIndex(self,animal));
+      if (has('ie') < 9){
+        newSlide.append();
+      }
+      else{
+        newSlide.insertAfter(getSlideIndex(self,animal));
+      }
 
       return newSlide;
     }
@@ -194,8 +200,14 @@ define(['dojo/Evented',
 
       elementObj.find('.image-slider').waitForImages({
         finished: function(){
-          self.infoPanes[animal].readyState.images = true;
-          checkLoadState(self,animal);
+          if (has('ie') < 9){
+            elementObj.addClass('loaded');
+            self.emit('loaded',self.currentPane);
+          }
+          else{
+            self.infoPanes[animal].readyState.images = true;
+            checkLoadState(self,animal);
+          }
         },
         waitForAll: true
       });
@@ -270,14 +282,24 @@ define(['dojo/Evented',
 
     function loadAdjInfoPane(self,animal)
     {
-      var aryIndex = self.currentPane.arrayIndex;
-      var next = self.animals[aryIndex + 1];
-      var prev = self.animals[aryIndex - 1];
-      if (next && !next.paneLoaded){
-        createNewPane(self,next.animal);
+      if (has('ie') < 9 && !self.ieInfoPanesLoaded){
+        self.ieInfoPanesLoaded = true;
+        for (var i = 0; i < self.animals.length; i++){
+          if (self.animals[i].animal != animal){
+            createNewPane(self,self.animals[i].animal);
+          }
+        }
       }
-      if (prev && !prev.paneLoaded){
-        createNewPane(self,prev.animal);
+      else{
+        var aryIndex = self.currentPane.arrayIndex;
+        var next = self.animals[aryIndex + 1];
+        var prev = self.animals[aryIndex - 1];
+        if (next && !next.paneLoaded){
+          createNewPane(self,next.animal);
+        }
+        if (prev && !prev.paneLoaded){
+          createNewPane(self,prev.animal);
+        }
       }
     }
 

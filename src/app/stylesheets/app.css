@@ -765,17 +765,22 @@ p.icon-home {
   line-height: 1.2;
   color: #ccc;
 }
+
+/* line 48 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+html[data-useragent*='MSIE 9.0'] p.icon-home {
+  margin-top: -2px;
+}
 @media all and (max-width: 767) {
 
-/* line 49 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+/* line 53 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
   .esriControlsBR {
     display: none;
   }
 }
 
-/* line 52 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
+/* line 56 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/map.styl */
 
-/* line 52 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
+/* line 56 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 
 /* line 1 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/ui/sidePane.styl */
 #side-pane-buffer-top {
@@ -859,7 +864,7 @@ p.icon-home {
   cursor: pointer;
   background-size: 61px 71px;
   background-repeat: no-repeat;
-  background-position: -1px -1;
+  background-position: -1px -1px;
   z-index: 1;
 }
 

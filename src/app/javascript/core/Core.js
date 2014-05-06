@@ -7,7 +7,7 @@ define(['storymaps/utils/Helper',
   'dojo/has',
   'dojo/touch',
   'lib/waitForImages/dist/jquery.waitforimages.min',
-  'lib/bigscreen/bigscreen'],
+  'dojo/_base/sniff'],
   function(Helper,
     configOptions,
     Map,
@@ -35,15 +35,27 @@ define(['storymaps/utils/Helper',
   _boundaryMap,
   _currentAnimal;
 
+  if (has('ie') === 9){
+    var doc = document.documentElement;
+    doc.setAttribute('data-useragent', navigator.userAgent);
+  }
+
   if (_embed){
     $('body').addClass('embed');
 
     $('#fullscreen-button').click(function(){
-      if (BigScreen.enabled) {
-        BigScreen.toggle();
-      }
-      else {
+      if(has('ie') <= 8){
         window.open(self.location.href);
+      }
+      else{
+        require(['lib/bigscreen/bigscreen'],function(){
+          if (BigScreen.enabled) {
+            BigScreen.toggle();
+          }
+          else {
+            window.open(self.location.href);
+          }
+        });
       }
     });
   }

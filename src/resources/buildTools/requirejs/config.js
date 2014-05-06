@@ -1,6 +1,7 @@
 require(
   [
-    "storymaps/core/Core"
+    "storymaps/core/Core",
+    'lib/bigscreen/bigscreen'
   ],
   function(Core){
     Core.init();
