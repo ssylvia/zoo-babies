@@ -51,6 +51,7 @@
 }
 
 .icon-spin:before { content: '\e806'; } /* '' */
+.icon-home:before { content: '\e809'; } /* '' */
 .icon-link:before { content: '\e800'; } /* '' */
 .icon-export:before { content: '\e807'; } /* '' */
 .icon-twitter:before { content: '\e803'; } /* '' */

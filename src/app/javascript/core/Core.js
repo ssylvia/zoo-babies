@@ -103,6 +103,7 @@ define(['storymaps/utils/Helper',
       }
       else{
         _boundaryMap.selectAnimal(_currentAnimal);
+        $('#boundary-toggle-wrapper').show();
       }
     });
 

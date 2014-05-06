@@ -127,6 +127,7 @@ define(['dojo/Evented',
           layer = selectLayerIfReady(self),
           animalAttr = 'animal',
           iconColor = 'green';
+          self.currentAnimalStr = animal;
 
         if (self.element === 'zoo-map'){
           animalAttr = 'Animal';
@@ -174,27 +175,7 @@ define(['dojo/Evented',
             layer.setRenderer(renderer);
             layer.redraw();
 
-            if (self.element === 'boundary-map'){
-              var noHabitat = true;
-              for (var lyr in self.boundaryLayers){
-                if (self.boundaryLayers.hasOwnProperty(lyr)) {
-                  if (lyr === animal){
-                    noHabitat = false;
-                    self.map.setExtent(self.boundaryLayers[lyr].initialExtent,true);
-                    self.boundaryLayers[lyr].show();
-                  }
-                  else if (lyr != 'centroid'){
-                    self.boundaryLayers[lyr].hide();
-                  }
-                }
-              }
-              if (noHabitat){
-                positionMap(self.map,self.currentAnimal,4);
-              }
-            }
-            else{
-              positionMap(self.map,self.currentAnimal,17);
-            }
+            setMapPosition(self,animal);
 
           });
         }
@@ -207,7 +188,17 @@ define(['dojo/Evented',
       },
 
       onMapReady: function(){
-        this.emit('loaded',{});
+
+        var self = this;
+
+        var homeButton = $('<div class="esriSimpleSliderIncrementButton homeExtentButton"><p class="icon-home"></p></div>');
+        $('#' + self.element + ' .esriSimpleSliderIncrementButton').after(homeButton);
+
+        self.emit('loaded',{});
+
+        homeButton.click(function(){
+          setMapPosition(self,self.currentAnimalStr);
+        });
       }
 
     });
@@ -276,6 +267,31 @@ define(['dojo/Evented',
             applyMultiTips(self,hightlight);
           }
         }
+      }
+    }
+
+    function setMapPosition(self,animal)
+    {
+      if (self.element === 'boundary-map'){
+        var noHabitat = true;
+        for (var lyr in self.boundaryLayers){
+          if (self.boundaryLayers.hasOwnProperty(lyr)) {
+            if (lyr === animal){
+              noHabitat = false;
+              self.map.setExtent(self.boundaryLayers[lyr].initialExtent,true);
+              self.boundaryLayers[lyr].show();
+            }
+            else if (lyr != 'centroid'){
+              self.boundaryLayers[lyr].hide();
+            }
+          }
+        }
+        if (noHabitat){
+          positionMap(self.map,self.currentAnimal,4);
+        }
+      }
+      else{
+        positionMap(self.map,self.currentAnimal,17);
       }
     }
 
