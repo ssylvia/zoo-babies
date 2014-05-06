@@ -141,7 +141,7 @@ define(['dojo/dom-style',
               query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong><hr><span class="habitat-description">Historically covering much of the island of Guam, they are no longer found in the wild.</span>';
             }
             else if (pt.attributes.animal === 'anemones'){
-              query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong><hr><span class="habitat-description">Red Sea Anemone habitat vary widely throughout the tidal zones of the  North Atlantic, North Sea, and Baltic regions.</span>';
+              query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong><hr><span class="habitat-description">Red Sea Anemone habitats are distributed widely throughout the tidal zones of the North Atlantic, North Sea, and Baltic regions.</span>';
             }
             else{
               query('#multiTip'+i)[0].innerHTML = '<strong>' + configOptions.animals[pt.attributes.animal].species + '</strong>';
