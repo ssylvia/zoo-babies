@@ -113,7 +113,7 @@ define(['dojo/Evented',
             if (self.readyForChange){
               self.map.setCursor('default');
               if (!has('touch') && event.graphic.attributes[attr] != self.currentAnimal.attributes[attr]){
-                applyMultiTips(self);
+                 applyMultiTips(self);
               }
             }
 
@@ -147,7 +147,6 @@ define(['dojo/Evented',
             on.once('extent-change',function(){
               applyMultiTips(self);
             });
-
 
             if($('#' + self.map.container.id).hasClass('active')){
               if (!has('ie') && self.currentAnimal.getDojoShape()){
@@ -248,8 +247,8 @@ define(['dojo/Evented',
 
     function applyMultiTips(self,hightlight)
     {
-      if(false && $('#' + self.map.container.id).hasClass('active')){
-        var pointArray = [self.currentAnimal];
+      var pointArray = [self.currentAnimal];
+      if($('#' + self.map.container.id).hasClass('active') && !self.multiTips){
 
         if (hightlight){
           pointArray.push(hightlight);
@@ -268,6 +267,15 @@ define(['dojo/Evented',
           mapAuthorizedHeight: -1,
           topLeftNotAuthorizedArea: [40, 180]
         });
+      }
+      else{
+        if (self.multiTips){
+          self.multiTips.clean(true);
+          self.multiTips = null;
+          if ($('#' + self.map.container.id).hasClass('active')){
+            applyMultiTips(self,hightlight);
+          }
+        }
       }
     }
 

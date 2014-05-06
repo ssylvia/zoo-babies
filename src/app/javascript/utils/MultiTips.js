@@ -37,10 +37,10 @@ define(['dojo/dom-style',
 				return settings.pointArray;
 			};
 
-			this.clean = function()
+			this.clean = function(keepElements)
 			{
 				settings = null;
-				cleanTips();
+				cleanTips(keepElements);
 			};
 
 			this.hide = function()
@@ -178,7 +178,7 @@ define(['dojo/dom-style',
 				events = [event1, event2, event3, event4];
 			}
 
-			function cleanTips()
+			function cleanTips(keepElements)
 			{
 				forceHidden = false;
 
@@ -186,8 +186,10 @@ define(['dojo/dom-style',
 					event.remove();
 				});
 
-				query('.multiTip').forEach(domConstruct.destroy);
-				query('.mtArrow').forEach(domConstruct.destroy);
+				if (!keepElements){
+          query('#.multiTip').forEach(domConstruct.destroy);
+  				query('.mtArrow').forEach(domConstruct.destroy);
+        }
 			}
 
 			function refreshTips(extent, forceVisible)

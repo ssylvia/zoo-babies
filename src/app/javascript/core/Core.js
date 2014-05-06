@@ -201,7 +201,7 @@ define(['storymaps/utils/Helper',
       if (configOptions.animals.hasOwnProperty(obj)) {
 
         var htmlString = '\
-          <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-animal="' + obj + '">\
+          <div class="selector-wrapper ' + obj + (i === 1 ? ' active' : '') + '" data-title="' + configOptions.animals[obj].species + '" data-animal="' + obj + '">\
             <div class="selection-arrow"></div>\
             <div class="selector zoo" style="background-image: url(resources/images/mapMarkers/orange/dark/' + obj + '.png)"></div>\
             <div class="selector wild" style="background-image: url(resources/images/mapMarkers/green/dark/' + obj + '.png)"></div>\

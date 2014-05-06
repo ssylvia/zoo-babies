@@ -21,6 +21,22 @@
   left: 15px;
   z-index: 102;
 
+  .selector-wrapper[data-title]:hover:after {
+    content: attr(data-title);
+    padding: 5px;
+    font-size: 12px;
+    background-color: #444;
+    color: white;
+    position: absolute;
+    left: 108%;
+    top: 108%;
+    white-space: nowrap;
+    z-index: 20;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+
   .selector-wrapper{
     position: relative;
     display: inline-block;
@@ -45,14 +61,14 @@
     position: relative;
     color: #fff;
     height: 43px;
-    width: 43px;
+    width: 44px;
     font-weight: 300;
     line-height: 1.9;
     border-radius: 30px;
     cursor: pointer;
-    background-size: 64px 74px;
+    background-size: 61px 71px;
     background-repeat: no-repeat;
-    background-position: -3px -1;
+    background-position: -1px -1;
     z-index: 1;
   }
 
