@@ -27,13 +27,13 @@ define([],
         'wildText': 'As the “world’s most social felines,” African lions (<a href="http://animaldiversity.ummz.umich.edu/accounts/Panthera_leo/" target="_blank"><em>Panthera leo</em></a>) are unique among big cats in that they have a complex pride social structure. The International Union for the Conservation of Nature (IUCN) lists them as vulnerable. Lion populations have decreased by about 30 percent over the last 20 years.',
         'images': [{
           'url': 'https://farm4.staticflickr.com/3680/12351219724_6a231df8a4_z.jpg',
-          'credit': ''
+          'credit': 'Karen Abbott, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm8.staticflickr.com/7433/12350945363_47c55eba71_z.jpg',
-          'credit': ''
+          'credit': 'Karen Abbott, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm4.staticflickr.com/3782/13380785174_1f8884867c_z.jpg',
-          'credit': ''
+          'credit': 'Karen Abbott, Smithsonian\'s National Zoo'
         }]
       },
       'greySeal': {
@@ -43,14 +43,14 @@ define([],
         'zooText': 'On March 26, 2014, one of the National Zoo’s female gray seals, Kara, <a href="http://nationalzoo.si.edu/Animals/AmericanTrail/News/2014Jan-PupBorn.cfm" target="_blank">gave birth</a> to her second pup, a girl. Kara was having trouble lactating, so keepers and vets stepped in to feed the growing pup. Her dad is the Zoo’s resident male gray seal, Gunther. By now the seal pup has lost her white baby coat, and sports a black spotted silvery coat like that if adult seals. Though not currently visible to the public, she enjoys her own pool behind the seal habitat on the zoo’s American Trail.',
         'wildText': 'In the wild, gray seals (<a href="http://www.nmfs.noaa.gov/pr/species/mammals/pinnipeds/grayseal.htm" target="_blank"><em>Halichoerus grypus</em></a>) were once endangered, though they are now a conservation success story, with numbers increasing in most coastal areas of the United States and Canada.',
         'images': [{
-          'url': 'https://farm8.staticflickr.com/7359/12236296036_8c65502182_z.jpg',
-          'credit': ''
+          'url': 'https://farm8.staticflickr.com/7329/13425841233_0c79cf7172_h.jpg',
+          'credit': ' Connor Mallon, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm6.staticflickr.com/5464/13426084754_a3f017d97a_z.jpg',
-          'credit': ''
+          'credit': ' Connor Mallon, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm8.staticflickr.com/7384/13426086394_baf0bcd95e_z.jpg',
-          'credit': ''
+          'credit': ' Connor Mallon, Smithsonian\'s National Zoo'
         }]
       },
       'gazelle': {
@@ -61,13 +61,13 @@ define([],
         'wildText': 'With a wild population of less than 500, Dama gazelles (<a href="http://nationalzoo.si.edu/Animals/AfricanSavanna/Facts/fact-dama.cfm" target="_blank"><em>Gazella dama</em></a>) are the rarest and the largest (reaching up to 4 feet at the shoulder) of the gazelle family. Though they once inhabited all of northern Africa, now this <a href="http://www.iucnredlist.org/details/8968/0" target="_blank">critically endangered</a> species is only found in select grasslands and steppes in Mali, Chad, and Niger. Their coloration varies with age and season, and they eat shrubs, herbs, succulents, trees and other woody plants.',
         'images': [{
           'url': 'https://farm3.staticflickr.com/2175/13083134063_a770c99038_z.jpg',
-          'credit': ''
+          'credit': 'Dolores Reed, Smithsonian Conservation Biology Institute'
         },{
           'url': 'https://farm8.staticflickr.com/7415/13083376534_5bf5f0facf_z.jpg',
-          'credit': ''
+          'credit': 'Dolores Reed, Smithsonian Conservation Biology Institute'
         },{
           'url': 'https://farm8.staticflickr.com/7392/13083311244_8b85928f6b_z.jpg',
-          'credit': ''
+          'credit': 'Dolores Reed, Smithsonian Conservation Biology Institute'
         }]
       },
       'kingFisher': {
@@ -78,10 +78,10 @@ define([],
         'wildText': 'Like many of Guam’s native bird species, Micronesian kingfishers (<a href="http://nationalzoo.si.edu/SCBI/EndangeredSpecies/MicroKingfisher/" target="_blank"><em>Halcyon cinnamomina cinnamomina</em></a>) suffered from over-predation from <a href="http://www.invasivespeciesinfo.gov/animals/bts.shtml" target="_blank">brown tree snakes</a> (Boiga irregularis), first brought to the island in the 1950s on cargo ships. They are now extinct in the wild.',
         'images': [{
           'url': 'https://farm3.staticflickr.com/2820/12121986613_6969a5a42c_z.jpg',
-          'credit': ''
+          'credit': 'Victoria Lake, Smithsonian Conservation Biology Institute'
         },{
           'url': 'https://farm4.staticflickr.com/3677/12122106034_1efaac336d_z.jpg',
-          'credit': ''
+          'credit': 'Victoria Lake, Smithsonian Conservation Biology Institute'
         }]
       },
       'slothBear': {
@@ -91,14 +91,14 @@ define([],
         'zooText': 'On December 29, 2013, one of the National Zoo’s female sloth bears, Khali, gave birth to three cubs. She surprised keepers by consuming two of those cubs, though ingesting cubs in the wild is common and usually means that the mother senses something is wrong with the cub. The third cub is currently being hand-reared by zoo staff. These bears can be seen along the <a href="http://nationalzoo.si.edu/animals/asiatrail/slothbears/" target="_blank">Asia Trail</a>.',
         'wildText': 'Native to India’s forests, sloth bears (<a href="http://nationalzoo.si.edu/animals/asiatrail/slothbears/factsheet.cfm" target="_blank"><em>Melursus ursinus</em></a>) are listed as <a href="http://www.iucnredlist.org/details/13143/0" target="_blank">vulnerable</a> on the IUCN’s Red List. They dine on a mixture of fruit, termites, and ants, depending on the season. Less than 10,000 sloth bears persist in the wild in India, Bhutan, Nepal and Sri Lanka.',
         'images': [{
-          'url': 'https://farm8.staticflickr.com/7361/9091898223_a5fcb06d98_z.jpg',
-          'credit': ''
+          'url': 'https://farm4.staticflickr.com/3834/13291342174_2f74bd81eb_h.jpg',
+          'credit': 'Connor Mallon, Smithsonian\'s National Zoo'
         },{
-          'url': 'https://farm3.staticflickr.com/2869/9094117286_050e82c069_z.jpg',
-          'credit': ''
+          'url': 'https://farm3.staticflickr.com/2808/13290990895_108ccda149_h.jpg',
+          'credit': 'Connor Mallon, Smithsonian\'s National Zoo'
         },{
-          'url': 'https://farm4.staticflickr.com/3757/9091895797_27a1854490_z.jpg',
-          'credit': ''
+          'url': 'https://farm4.staticflickr.com/3826/13291355494_61810a7630_h.jpg',
+          'credit': 'Connor Mallon, Smithsonian\'s National Zoo'
         }]
       },
       'horse': {
@@ -109,13 +109,13 @@ define([],
         'wildText': 'At a little more than 4 feet high, Przewalski’s horses are the only living undomesticated horses, though technically classified as <a href="http://www.iucnredlist.org/details/7961/0" target="_blank">extinct</a> in the wild. They originally inhabited parts of eastern Europe, Russia, Mongolia, and China.',
         'images': [{
           'url': 'https://farm4.staticflickr.com/3699/9408984831_afeb46dea6_z.jpg',
-          'credit': ''
+          'credit': 'Doloros Reed, Smithsonian Conservation Biology Institute'
         },{
           'url': 'https://farm3.staticflickr.com/2813/9408982123_dc24647c32_z.jpg',
-          'credit': ''
+          'credit': 'Doloros Reed, Smithsonian Conservation Biology Institute'
         },{
           'url': 'https://farm4.staticflickr.com/3802/9411745468_a2e413e616_z.jpg',
-          'credit': ''
+          'credit': 'Doloros Reed, Smithsonian Conservation Biology Institute'
         }]
       },
       'panda': {
@@ -126,13 +126,13 @@ define([],
         'wildText': 'About 1,600 giant pandas (<a href="http://nationalzoo.si.edu/Animals/GiantPandas/PandaFacts/" target="_blank"><em>Ailuropoda melanoleuca</em></a>) persist in the temperate mountain forests of China, their natural habitat, and the IUCN classifies these majestic animals as <a href="http://www.iucnredlist.org/details/712/0" target="_blank">endangered</a>. Despite intensive conservation efforts, the number of wild pandas continues to decline.',
         'images': [{
           'url': 'https://farm8.staticflickr.com/7336/13703501844_c68f6228e7_z.jpg',
-          'credit': ''
+          'credit': 'Abby Wood, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm8.staticflickr.com/7044/13542517163_093699727e_z.jpg',
-          'credit': ''
+          'credit': 'Connor Mallon, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm6.staticflickr.com/5056/13703152133_bd507a5961_z.jpg',
-          'credit': ''
+          'credit': 'Abby Wood, Smithsonian\'s National Zoo'
         }]
       },
       'tiger': {
@@ -143,13 +143,13 @@ define([],
         'wildText': 'Scientists estimate that only 400 of this critically endangered species (<em>Panthera tigris ssp. Sumatrae</em>) remain in the wild. Although tigers are legally protected in Sumatra, poaching continues to take a toll, as does a steadily shrinking forest habitat.',
         'images': [{
           'url': 'https://farm6.staticflickr.com/5473/10931220815_e992e9c9c4_b.jpg',
-          'credit': ''
+          'credit': 'Abby Wood, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm4.staticflickr.com/3697/10711994135_0d072aa9aa_b.jpg',
-          'credit': ''
+          'credit': 'Connor Mallon, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm4.staticflickr.com/3807/10931490633_4034dc845f_b.jpg',
-          'credit': ''
+          'credit': ' Abby Wood, Smithsonian\'s National Zoo'
         }]
       },
       'crocs': {
@@ -160,13 +160,13 @@ define([],
         'wildText': 'Like most crocodile species, Cuban crocs suffer from habitat loss and illicit human hunting in Cuba’s wild swamps, so the IUCN has labeled them <a href="http://www.iucnredlist.org/details/5670/0" target="_blank">critically endangered</a>. Increased breeding with American crocodiles has produced a growing hybrid population, as well. Scientists estimate that this species has experienced an 80 percent drop in population over the last three generations, and about 4,000 full Cuban crocs still survive in the wild.',
         'images': [{
           'url': 'https://farm8.staticflickr.com/7257/7604590544_a4e35186a7_z.jpg',
-          'credit': ''
+          'credit': 'Barbara Watkins, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm8.staticflickr.com/7131/7604589062_d79217ec67_z.jpg',
-          'credit': ''
+          'credit': 'Barbara Watkins, Smithsonian\'s National Zoo'
         },{
           'url': 'https://farm8.staticflickr.com/7252/7604590882_4943c33a79_z.jpg',
-          'credit': ''
+          'credit': 'Barbara Watkins, Smithsonian\'s National Zoo'
         }]
       },
       'anemones': {
@@ -177,10 +177,10 @@ define([],
         'wildText': 'Sea anemones are not considered endangered, but the ability to breed them in captivity allows researchers to investigate how their reproductive cycles and behaviors work in the wild. Scientists are concerned about the vulnerability of many marine animals, including anemones, due to increasing ocean pollution and changes in ocean chemistry caused by climate change.',
         'images': [{
           'url': 'http://smithsonianscience.org/wordpress/wp-content/uploads/2010/08/clip_image001.jpg',
-          'credit': ''
+          'credit': 'Mehgan Murphy, Smithsonian\'s National Zoo'
         },{
           'url': 'http://smithsonianscience.org/wordpress/wp-content/uploads/2010/08/clip_image001x.jpg',
-          'credit': ''
+          'credit': 'Mike Henley, Smithsonian\'s National Zoo'
         }]
       }
     }
