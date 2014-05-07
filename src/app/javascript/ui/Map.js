@@ -139,7 +139,7 @@ define(['dojo/Evented',
           self.readyForChange = false;
           query.returnGeometry = true;
           query.where = animalAttr + ' = \'' + animal + '\'';
-          query.outFields = '[*]';
+          query.outFields = ['*'];
 
           layer.queryFeatures(query,function(results){
             self.currentAnimal = results.features[0];
@@ -147,13 +147,10 @@ define(['dojo/Evented',
 
             on.once('extent-change',function(){
               applyMultiTips(self);
-            });
-
-            if($('#' + self.map.container.id).hasClass('active')){
               if (!has('ie') && self.currentAnimal.getDojoShape()){
                 self.currentAnimal.getDojoShape().moveToFront();
               }
-            }
+            });
 
             var defaultSymbol = new PictureMarkerSymbol('resources/images/mapMarkers/' + iconColor + '/light/anemones.png', self.markerPosition.width, self.markerPosition.height).setOffset(self.markerPosition.xOffset,self.markerPosition.yOffset);
             var renderer = new UniqueValueRenderer(defaultSymbol, animalAttr);

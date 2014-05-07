@@ -60,15 +60,16 @@ define(['storymaps/utils/Helper',
     });
   }
 
-  if (has('touch')){
-    $('body').addClass('touch');
-    if ($('body').width() < 768){
-      _mobile = true;
-
-      $('#mobile-entrance .btn').click(function(){
-        $('#mobile-entrance').hide();
-      });
+  if ($('body').width() < 768){
+    if (has('touch')){
+      $('body').addClass('touch');
     }
+    $('body').addClass('mobile');
+    _mobile = true;
+
+    $('#mobile-entrance .btn').click(function(){
+      $('#mobile-entrance').hide();
+    });
   }
 
   Helper.enableRegionLayout();

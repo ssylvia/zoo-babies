@@ -8,11 +8,11 @@ define([],
 
   var configOptions = {
     boundaryMap: {
-      webmapId: '6062139d42a24ed7841fe42363a841ca',
+      webmapId: '79a7568bb38d4ee1adf5dacca438696f',
       element: 'boundary-map'
     },
     zooMap: {
-      webmapId: '705c481ee1b542199d341ba31eb72f68',
+      webmapId: 'dfb3b9806fb149a786e94e003f6882e2',
       element: 'zoo-map'
     },
     proxyUrl: '',

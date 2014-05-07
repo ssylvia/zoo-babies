@@ -116,6 +116,10 @@ define(['dojo/Evented',
         }
       };
 
+      elementObj.find('.next-animal .btn').click(function(){
+        self.swiper.swipeNext();
+      });
+
       self.infoPanes[animal] = infoPane;
       self.animals[aryIndex].paneLoaded = true;
 
@@ -143,6 +147,7 @@ define(['dojo/Evented',
             <p class="zoo-text">' + dataObj.zooText + '</p>\
             <h6 class="wild-text-header mobile-text-header"><strong>In the Wild</strong></h6>\
             <p class="wild-text">' + dataObj.wildText + '</p>\
+            <div class="next-animal"><div class="btn">See the next zoo baby</div></div>\
           </div>\
         </div>';
 

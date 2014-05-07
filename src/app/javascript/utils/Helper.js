@@ -53,9 +53,11 @@ define(['dojo/_base/array',
 	function regionLayout()
 	{
     if ($('body').width() < 768){
+      $('body').addClass('mobile');
       $('#side-pane').removeClass('region-left').addClass('region-center');
     }
     else{
+      $('body').removeClass('mobile');
       $('#side-pane').removeClass('region-center').addClass('region-left');
     }
 
