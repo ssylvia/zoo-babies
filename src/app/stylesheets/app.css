@@ -235,9 +235,9 @@ Pagination Styles
 
 /* line 79 : /Users/step6692/Development/GitHub/zoo-babies/src/bower_components/swiper/dist/idangerous.swiper.css */
 
-/* line 129 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 133 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 
-/* line 129 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 133 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 /*
    Animation example, for spinners
 */
@@ -324,7 +324,7 @@ Pagination Styles
   }
 }
 
-/* line 129 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/icons/animation.css */
+/* line 133 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/icons/animation.css */
 @font-face {
   font-family: 'fontello';
   src: url('../../resources/icons/fontello.eot');
@@ -388,7 +388,7 @@ Pagination Styles
 .icon-left-open:before { content: '\e804'; } /* '' */
 .icon-right-open:before { content: '\e805'; } /* '' */
 
-/* line 129 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/icons/fontello.css */
+/* line 133 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/icons/fontello.css */
 
 /* line 3 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/config.styl */
 
@@ -417,6 +417,11 @@ body {
 }
 
 /* line 13 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+.modal {
+  z-index: 1000 !important;
+}
+
+/* line 17 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #app-load-screen {
   position: fixed;
   background-color: #ccc;
@@ -425,14 +430,14 @@ body {
   z-index: 900;
 }
 
-/* line 21 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 25 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #loader {
   position: fixed;
   top: 50%;
   right: 50%;
 }
 
-/* line 27 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 31 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #loading-message {
   position: fixed;
   font-family: "open-sans", sans-serif;
@@ -443,13 +448,13 @@ body {
   margin-top: 65px;
 }
 
-/* line 37 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 41 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .region-right {
   position: absolute;
   right: 0;
 }
 
-/* line 42 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 46 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .region-left,
 .region-center,
 .region-top,
@@ -458,12 +463,12 @@ body {
   left: 0;
 }
 
-/* line 47 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 51 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .region-bottom {
   bottom: 0;
 }
 
-/* line 51 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 55 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 h1,
 h2,
 h3,
@@ -473,100 +478,100 @@ h6 {
   font-family: "open-sans", sans-serif;
 }
 
-/* line 55 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 59 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 div,
 p,
 li {
   font-family: "open-sans", sans-serif;
 }
 
-/* line 59 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 63 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 63 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 67 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 i,
 em {
   font-style: italic;
 }
 
-/* line 67 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 71 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 ol,
 ul {
   padding: 0.2em 0 0 1.5em;
   list-style-position: inside;
 }
 
-/* line 72 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 76 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 ol {
   list-style-type: decimal;
 }
 
-/* line 76 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 80 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .map .container {
   max-width: none;
 }
 
-/* line 80 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 84 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .bitly-modal {
   text-align: center;
   height: auto;
   overflow: hidden;
 }
 
-/* line 84 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 88 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .bitly-modal h4 {
   text-align: left;
 }
 
-/* line 89 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 93 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #bitly-link {
   font-size: 26px;
 }
 
-/* line 93 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 97 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #bitly-copy {
   margin-top: 24px;
 }
 
-/* line 96 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 100 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 #bitly-copy.zeroclipboard-is-hover {
   background-color: #e16b17;
 }
 
-/* line 101 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 105 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .esriLegendService {
   padding-bottom: 15px;
 }
 
-/* line 106 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 110 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .esriViewPopup .gallery {
   height: auto;
   max-height: 150px;
 }
 
-/* line 111 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 115 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 .esriPopup .maximize,
 .esriPopup .zoomTo,
 .esriPopup .editSummarySection {
   display: none;
 }
 
-/* line 116 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 120 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 
-/* line 117 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 121 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 body:not(.touch) ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* line 121 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 125 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 body:not(.touch) ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
-/* line 125 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
+/* line 129 : /Users/step6692/Development/GitHub/zoo-babies/src/app/stylesheets/base/storymaps.styl */
 body:not(.touch) ::-webkit-scrollbar-thumb {
   background: #ccc;
 }
